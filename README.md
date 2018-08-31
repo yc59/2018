@@ -1,148 +1,150 @@
-# 2018 MT4113: Computing in Statistics
+# University of St Andrews MT4113: Computing in Statistics
 
 ## Summary
 
 The goal of this course is to . . . 
+The course is comprised of [lectures](#lectures), [practicals](##Practicals), and [assignments](##Assignments). 
 
-## Lectures
+## Lectures <a name="lectures"></a>
 
 ### Lecture 1
 
-+ Date: 
-+ Topic:
-+ Lecturer:
++ Date: 17 September 2018
++ Topic: Computers, Software, and Algorithms
++ Lecturer: Len Thomas
 + Slides:
 + Readings:
 
 ### Lecture 2
 
-+ Date: 
-+ Topic:
-+ Lecturer:
++ Date: 19 September 2018
++ Topic: Modular Programming
++ Lecturer: Len Thomas
 + Slides:
 + Readings:
 
 ### Lecture 3
 
-+ Date: 
-+ Topic:
-+ Lecturer:
++ Date: 26 September 2018
++ Topic: Good Programming Practice
++ Lecturer: Eiren Jacobson
 + Slides:
 + Readings:
 
 ### Lecture 4
 
-+ Date: 
-+ Topic:
-+ Lecturer:
++ Date: 1 October 2018
++ Topic: Computer Arithmetic
++ Lecturer: Len Thomas
 + Slides:
 + Readings:
 
 ### Lecture 5
 
-+ Date: 
-+ Topic:
-+ Lecturer:
-+ Slides:
++ Date: 3 October 2018
++ Topic: Feedback on Assignment 1 and Intro to Assignment 2
++ Lecturer: Len Thomas and Eiren Jacobson
 + Readings:
 
 ### Lecture 6
 
-+ Date: 
-+ Topic:
-+ Lecturer:
++ Date: 10 October 2018
++ Topic: Randomization
++ Lecturer: Len Thomas
 + Slides:
 + Readings:
 
 ### Lecture 7
 
-+ Date: 
-+ Topic:
-+ Lecturer:
++ Date: 15 October 2018
++ Topic: Bootstrap
++ Lecturer: Len Thomas
 + Slides:
 + Readings:
 
 ### Lecture 8
 
-+ Date: 
-+ Topic:
-+ Lecturer:
++ Date: 17 October 2018
++ Topic: Monte Carlo Methods
++ Lecturer: Len Thomas
 + Slides:
 + Readings:
 
 ### Lecture 9
 
-+ Date: 
-+ Topic:
-+ Lecturer:
++ Date: 29 October 2018
++ Topic: Optimization I
++ Lecturer: Eiren Jacobson
 + Slides:
 + Readings:
 
 ### Lecture 10
 
-+ Date: 
-+ Topic:
-+ Lecturer:
++ Date: 31 October 2018
++ Topic: Optimization II
++ Lecturer: Eiren Jacobson
 + Slides:
 + Readings:
 
 ### Lecture 11
 
-+ Date: 
-+ Topic:
++ Date: 5 November 2018
++ Topic: Optimization III
 + Lecturer:
 + Slides:
 + Readings:
 
 ### Lecture 12
 
-+ Date: 
-+ Topic:
-+ Lecturer:
++ Date: 12 November 2018
++ Topic: Reproducible Research and Data Management
++ Lecturer: Eiren Jacobson
 + Slides:
 + Readings:
 
 ### Lecture 13
 
-+ Date: 
-+ Topic:
-+ Lecturer:
-+ Slides:
++ Date: 14 November 2018
++ Topic: Data Wrangling
++ Lecturer: Eiren Jacobson
++ Slides: 
 + Readings:
 
 ### Lecture 14
 
-+ Date: 
-+ Topic:
-+ Lecturer:
++ Date: 19 November 2018
++ Topic: Graphical Presentation of Data
++ Lecturer: Eiren Jacobson
 + Slides:
 + Readings:
 
 ### Lecture 15
 
-+ Date: 
-+ Topic:
-+ Lecturer:
++ Date: 28 November 2018
++ Topic: Revision Lecture
++ Lecturer: Len Thomas
 + Slides:
 + Readings:
 
 ## Practicals
 
 ### Practical 0
-+ Date:
-+ Topic:
-+ Lecturer:
+
++ Date: 14 September 2018
++ Topic: Getting Started in R
++ Lecturer: Eiren Jacobson
 
 ### Practical 1
-+ Date:
-+ Topic:
-+ Lecturer
+
++ Date: 21 September 2018
++ Topic: Modular Programming
++ Lecturer: Len Thomas
 
 ### Practical 2
 
-+ Date: 
-+ Topic:
-+ Lecturer:
++ Date: 28 September 2018
++ Topic: Testing and Debugging
++ Lecturer: Len Thomas
 
 ### Practical 3
 
