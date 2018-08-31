@@ -32,7 +32,7 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 + Topic: Good Programming Practice
 + Lecturer: Eiren Jacobson
 + Slides:
-+ Readings: [Good enough practices in scientific computing](https://github.com/MT4113/2018/blob/master/Lectures/Lecture%203/WilsonEtAl_2017_GoodEnoughPractices.pdf)
++ Readings: 
 
 ### Lecture 4
 
@@ -103,7 +103,7 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 + Topic: Reproducible Research and Data Management
 + Lecturer: Eiren Jacobson
 + Slides:
-+ Readings:
++ Readings: [Good enough practices in scientific computing](https://github.com/MT4113/2018/blob/master/Lectures/Lecture%12/WilsonEtAl_2017_GoodEnoughPractices.pdf)
 
 ### Lecture 13
 
