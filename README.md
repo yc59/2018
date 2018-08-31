@@ -3,7 +3,10 @@
 ## Summary
 
 The goal of this course is to . . . 
-The course is comprised of [lectures](#lectures), [practicals](##Practicals), and [assignments](##Assignments). 
+
+The course is comprised of [lectures](#lectures), [practicals](#practicals), and [assignments](#assignments). 
+
+Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren Jacobson](eirenjacobson.info).
 
 ## Lectures <a name="lectures"></a>
 
@@ -126,7 +129,7 @@ The course is comprised of [lectures](#lectures), [practicals](##Practicals), an
 + Slides:
 + Readings:
 
-## Practicals
+## Practicals <a name="practicals"></a>
 
 ### Practical 0
 
@@ -188,7 +191,7 @@ The course is comprised of [lectures](#lectures), [practicals](##Practicals), an
 + Topic:
 + Lecturer:
 
-## Assignments
+## Assignments <a name="assignments"></a>
 
 ### Assignment 1
 
