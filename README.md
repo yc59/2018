@@ -8,7 +8,7 @@ The course is comprised of [lectures](#lectures), [practicals](#practicals), and
 
 Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren Jacobson](eirenjacobson.info).
 
-## Lectures <a name="lectures"></a>
+## [Lectures](https://github.com/MT4113/2018/tree/master/Lectures) <a name="lectures"></a>
 
 ### Lecture 1
 
@@ -26,13 +26,13 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 + Slides:
 + Readings:
 
-### Lecture 3
+### [Lecture 3](https://github.com/MT4113/2018/tree/master/Lectures/Lecture%203)
 
 + Date: 26 September 2018
 + Topic: Good Programming Practice
 + Lecturer: Eiren Jacobson
 + Slides:
-+ Readings:
++ Readings: [Good enough practices in scientific computing](https://github.com/MT4113/2018/blob/master/Lectures/Lecture%203/WilsonEtAl_2017_GoodEnoughPractices.pdf)
 
 ### Lecture 4
 
