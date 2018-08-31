@@ -8,7 +8,7 @@ The course is comprised of [lectures](#lectures), [practicals](#practicals), and
 
 Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren Jacobson](eirenjacobson.info).
 
-## [Lectures](https://github.com/MT4113/2018/tree/master/Lectures) <a name="lectures"></a>
+## Lectures <a name="lectures"></a>
 
 ### Lecture 1
 
