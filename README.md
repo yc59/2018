@@ -6,7 +6,7 @@ The goal of this course is to . . .
 
 The course is comprised of [lectures](#lectures), [practicals](#practicals), and [assignments](#assignments). 
 
-Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren Jacobson](eirenjacobson.info).
+Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren Jacobson](https://eirenjacobson.github.io/).
 
 ## Lectures <a name="lectures"></a>
 
