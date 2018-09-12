@@ -1,0 +1,639 @@
+\documentclass[ignorenonframetext,]{beamer}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+\usetheme[]{EastLansing}
+\usecolortheme{crane}
+\usefonttheme{structurebold}
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\newif\ifbibliography
+\hypersetup{
+            pdftitle={MT4113, Computing in Statistics},
+            pdfauthor={Lecture 1 - Hardware, software and algorithms},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+
+\AtBeginPart{
+  \let\insertpartnumber\relax
+  \let\partname\relax
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \let\insertsectionnumber\relax
+    \let\sectionname\relax
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \let\insertsubsectionnumber\relax
+  \let\subsectionname\relax
+  \frame{\subsectionpage}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+\title{MT4113, Computing in Statistics}
+\author{Lecture 1 - Hardware, software and algorithms}
+\date{17 September 2018}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}
+\tableofcontents[hideallsubsections]
+\end{frame}
+
+\begin{frame}
+
+\end{frame}
+
+\section{Computers (from a statistician's
+persepctive)}\label{computers-from-a-statisticians-persepctive}
+
+\begin{frame}{What is a computer?}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Approximate definition:
+\end{itemize}
+
+\begin{quote}
+A device that accepts information (in the form of digitized data) and
+manipulates it according to a sequence of instructions to produce
+output.
+\end{quote}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  We can divide the device into two parts:
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    Hardware - physical computer equipment
+  \item
+    Software - set of instructions that operate the hardware
+    \textasciitilde{} computer program
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Computer architecture}
+
+Hardware
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Central Processing Unit (CPU) -- controls the computer and executes
+  instructions\\
+  (N.B. Many computers also contain graphics processing units (GPU's),
+  which can be used for numerical computation.)
+\item
+  Memory -- fast storage
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    Registers -- within the CPU, superfast
+  \item
+    Random Access Memory (RAM) -- slower
+  \end{itemize}
+\item
+  Mass storage -- e.g., hard disk drives -- (traditionally) much slower
+\item
+  Input/Output -- keyboard, screen, printer, etc.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+Software
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  System software -- e.g., Microsoft Windows, Linux
+\item
+  Application software -- e.g., Microsoft Word, SAS, R
+\item
+  Programming software -- e.g., Microsoft Visual C, GNU C, R
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    Implementations of programming languages -- C, S, etc.
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Programming languages}
+
+Classified according to:
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Level of abstraction
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    low level = close to the specific computer hardware - black-belt
+    stuff
+  \item
+    high level = far from the hardware (so can run on many different
+    systems) and closer to natural language - can focus on tasks to be
+    achieved
+  \end{itemize}
+\item
+  Generality: higher level languages tend to be more specialized in
+  application
+\item
+  Speed/Efficiency: lower level is generally faster (although not always
+  true)
+\item
+  Generations: 1st-5th
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Programming language generations}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  1st generation (1GL): machine language - CPU-specific set of
+  instructions. E.g. \texttt{10110000\ 01100001} on a Pentium-type CPU
+  means move the value 97 into a certain register.
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    Relatively few different instructions (\(\approx100\) in an Intel
+    chip) and many of these are required to achieve anything useful.
+  \end{itemize}
+\item
+  2nd generation (2GL): assembly language.
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    A human-readable form of machine language. E.g., the above in
+    assembly is \texttt{mov\ al,\ 061h}
+  \item
+    \texttt{al} is the name of the register and \texttt{61h} is 61 in
+    hexadecimal, which is 97 in decimal
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  3rd generation (3GL): more human-friendly, CPU-independent language
+  with variables, data and code structures.
+
+  \begin{itemize}[<+->]
+  \item
+    E.g.\\
+    FORTRAN
+
+\begin{verbatim}
+IF(X.EQ.12) LET A = B
+\end{verbatim}
+
+    BASIC
+
+\begin{verbatim}
+if (x=12) then a = b
+\end{verbatim}
+
+    Pascal
+
+\begin{verbatim}
+if (x=12) then a := b;
+\end{verbatim}
+
+    C
+
+\begin{verbatim}
+if (x==12) a = b
+\end{verbatim}
+  \item
+    Also \emph{object-oriented} languages such as C++ and Java.
+  \item
+    Most programs you use (e.g., Windows, Unix, R, etc.) are written in
+    a 3GL.
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  4th generation (4GL): language designed with a specific application in
+  mind -- lots of built-in capabilities for that application.
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    database query languages (SQL), graphical user interface (GUI)
+    creators (Visual Basic), mathematics languages (Mathematica, Maple),
+    statistics languages (R, SAS).
+  \end{itemize}
+\item
+  5th generation (5GL): language based around solving problems, given
+  the problem specification. User does not need to explicitly write the
+  algorithm for solving the problem.
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    Prolog. Used is in artificial intelligence studies.
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Compiled vs Interpreted}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  All languages must be turned into machine code before they can be
+  executed by a computer
+\item
+  Two approaches:
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    Interpret: turn each line into machine code as it is entered using
+    an `interpreter' and run it straight away.
+  \item
+    Compile: once the code is written and saved into a file, turn it all
+    into machine code in one go using a `compiler'. Then, it can be run.
+  \end{itemize}
+\item
+  Pros and cons:
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    Interpreted code provides instant feedback -- good for short, run
+    once jobs. Tend to be used by 4GLs.
+  \item
+    Compiled code runs faster (compiler can \emph{optimize}) -- good for
+    jobs that will be run many times. Tend to be used by 3GLs.
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{(Trivial) example of optimization}
+
+\begin{itemize}[<+->]
+\item
+  Slower:
+
+\begin{verbatim}
+for i = 1 to 10
+  j[i] = log(k) + i
+next
+\end{verbatim}
+\item
+  An optimizing compiler could recognize the inefficiency and
+  automatically turn it into something like the following while
+  compiling.
+\item
+  Faster:
+
+\begin{verbatim}
+l = log(k)
+for i = 1 to 10
+  j[i] = l + i
+next
+\end{verbatim}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{What programming language/package should we use for
+statistics?}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  For simple \emph{do once} stuff (by the way, \emph{do once} is a
+  myth), we can use our favourite stats package, perhaps via a GUI
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    but there is no \emph{reproducible trail} of how the analysis was
+    done
+  \end{itemize}
+\item
+  For more complex stuff, but still only \emph{do once} or \emph{do a
+  few times}, use a statistical 4GL within an interpreter
+\item
+  For production software, or where efficiency is important
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    use a 3GL and compile the code, or
+  \item
+    prototype in a 4GL and then re-write the bits that are slow in a 3GL
+    which you call from the 4GL
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\section{Software for statistics}\label{software-for-statistics}
+
+Most of the time you have no choice!
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Use what the client uses/wants
+\item
+  Your company only has a license for one piece of software, or your IT
+  department will only support one package
+\item
+  You are taking MT4113 and we are only teaching you R
+\end{itemize}
+
+\begin{frame}{If you do have a choice:}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  If you have a zero budget, use R -- it's free!
+\item
+  If you only use the package rarely and want to do something quite
+  standard, choose something easy to use (point and click) SPSS, etc.
+\item
+  For enormous datasets, use SAS (or maybe Microsoft R Open, or R with
+  Hadoop)
+\item
+  If you are doing research in statistics, start with R (or maybe
+  MATLAB/Mathematica)
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  For computer-intensive work, or something that you wish to automate
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    Prototype with an easy-to-use but extensible package (R)
+  \item
+    Find out which bits are slow and port them to a 3GL
+  \item
+    \ldots{} or re-write the whole thing into a 3GL
+  \item
+    Consider what kind of user interface you need
+  \end{itemize}
+\item
+  For specialized applications, look at the specialized packages
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{R}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  a language and environment for statistical computing and graphics
+\item
+  open source, free
+\item
+  widely used by academic statisticians
+\item
+  based on the S 4GL
+\item
+  extremely extensible
+\item
+  rapidly developing and maturing
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Current version is 3.5.1
+\item
+  Widely used in academia, making its mark elsewhere
+\item
+  Core development team of approx 20 members, with many hundreds
+  contributing extensions ( packages )
+\item
+  Supported by the R Foundation and (commercial) R Consortium.
+\item
+  \texttt{useR!} conferences, etc.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Why use R?}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Pros:
+\item
+  Contains cutting-edge methods (usually as add-on packages)
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    Highly extensible
+  \item
+    Cannot beat the price
+  \end{itemize}
+\item
+  Cons:
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    Steep learning curve
+  \item
+    Less well supported than a commercial package?
+  \item
+    Greater tendency to ignore backwards compatibility?
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Learning resources for R}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Introduction to Stats with R books (see reading list)
+\item
+  R project home page \url{http://www.r-project.org/}
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    Up-to-date list of books
+  \end{itemize}
+\item
+  Other books see additional reading list (on Moodle)
+\item
+  R bloggers - a collection of hundreds of blogs on R
+  \url{http://www.r-bloggers.com/}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Evolution of an R programmer}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Phase 1
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    R as calculator
+  \end{itemize}
+\item
+  Phase 2
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    the \emph{script}
+  \item
+    10-15 lines of code strung together to perform a task
+  \item
+    might have a loop, maybe even an if-statement
+  \item
+    one or two comments
+  \item
+    not intended for use (or viewing) by others
+  \end{itemize}
+\item
+  Phase 3
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    modular programming with functions
+  \item
+    undertaking a sufficiently complex analysis that organisation
+    becomes critical
+  \item
+    description of input and output are critical to ensure reusability
+  \end{itemize}
+\item
+  When performing functional programming,
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    there are elements of the R language not previously used that become
+    useful
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\section{Algorithms and computer
+code}\label{algorithms-and-computer-code}
+
+Note to self - expand again?
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Algorithm: an \emph{ordered} sequence of \emph{unambiguous} and
+  well-defined instructions for \emph{performing some task} and
+  \emph{halting} in finite time
+\item
+  Important features
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    an ordered sequence
+  \item
+    unambiguous and well defined instructions each instruction is clear,
+    do-able, and can be done without difficulty
+  \item
+    performs some task algorithm needs to be complete, with nothing left
+    out
+  \item
+    halts in finite time i.e., the algorithm needs to terminate
+  \end{itemize}
+\end{itemize}
+
+\section{Description of Assignment 1}\label{description-of-assignment-1}
+
+Goes here!
+
+\end{document}

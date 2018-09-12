@@ -1,0 +1,110 @@
+---
+title: "MT4113, Computing in Statistics"
+author: "Lecture 0 - Introduction to Module"
+date: "17 September 2018"
+output:
+  beamer_presentation:
+    colortheme: crane
+    fonttheme: structurebold
+    incremental: yes
+    keep_tex: yes
+    slide_level: 2
+    theme: EastLansing
+    toc: no
+  ioslides_presentation:
+    incremental: yes
+  pdf_document: default
+  html_document: default
+---
+
+## Welcome to MT4113 Computing in Statistics!
+
+Module instructors:
+
+* Len Thomas len.thomas@st-andrews.ac.uk
+* Eiren Jacobson ej45@st-andrews.ac.uk
+
+Module tutor:
+
+* Fanny Empacher fe21@st-andrews.ac.uk
+
+## Why am I taking this module? I
+
+This module will:
+
+* Help me get a job (in industry or research)
+    * Computers are essential tools in both pure and applied statistics, and most other walks of life
+    * Many job applications require experience with given computer packages
+    * Here, we'll be using one of the dominant packages in statistical computing: R
+
+## Why am I taking this module? II
+
+This module will:
+
+*  Help me keep that job
+    * Sooner or later, we need to automate a set of tasks, or extend software to perform new tasks
+    * For this to go smoothly, we need to know how to write efficient, re-useable programs that work
+    * Good programming practice will be a major theme of this module -- a very transferrable skill
+
+## Why am I taking this module? III
+
+This module will:
+
+*  Help me out of trouble
+    * Many statistical methods make strong assumptions about the underlying distribution of the data.
+    * By contrast, we will (briefly) cover some some simple, robust, computer-intensive methods that are very powerful yet make only weak assumptions about the data.
+    * We will also cover methods for optimizing functions -- useful for things like maximizing likelihoods.
+
+## Why am I taking this module? IV
+
+This module will:
+
+* Help me with other modules
+    * R and general programming skills will be useful in other modules and project work.
+
+## Why am I taking this module? V
+
+* Err... my course requires me to take a computing module and this looked the least worst option!
+
+## Approximate Syllabus
+
+* Fundamental programming principles (Len & Eiren), Weeks 1-3
+* Computer-intensive statistics (Len), Weeks 4-5
+* Optimization methods (Eiren), Weeks 7-8
+* Code performance, reprodcibility and graphics (Eiren & Len), Weeks 9-10
+
+## Timetable
+
+- Format: Mix of lectures (Monday LTC, Wednesday LTA, 12-1pm) and computer practicals (Friday Comp. classroom, 12-2pm)
+- Drop-in help sessions: Likely to be Wednesday 1-2pm LTC, with Fanny
+- Assessment: 60% in-semester assessment; 40% final exam
+    - 1 smaller programming assignment, worth 10%.
+        - Peer review exercise, for additional feedback.
+    - 1 group programming project, worth 20%.
+		- 1 larger programming project, worth 30%.
+- Module web site: on Moodle
+    - Includes fora (news and help), lectures, projects, additional material
+    - The Moodle site is the module handbook.
+
+## Deadlines
+
+- Published on the module web site
+- University late coursework policy is linked on the web site
+- If you have a registered request for flexible deadlines, please discuss this with me or Eiren at the end of this class
+
+## Attendence Monitoring
+
+New University-level policy
+
+> As with all 3000-5000 Level taught modules in the School of
+> Mathematics and Statistics attendance will be monitored at 
+> various points over the semester. This is to comply with UKVI 
+> regulations and to monitor student wellbeing.  
+> For MT4113 attendance will be taken at the practicals of 
+> Friday 12th October and Friday 16th November.
+
+## Notice
+ 
+> This module requires considerable time investment to 
+> reach your potential (nominal work load for all 15 
+> credit modules is 150 hours, including class time).

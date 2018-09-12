@@ -1,0 +1,308 @@
+\documentclass[ignorenonframetext,]{beamer}
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{caption label separator}{: }
+\setbeamercolor{caption name}{fg=normal text.fg}
+\beamertemplatenavigationsymbolsempty
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+\usetheme[]{EastLansing}
+\usecolortheme{crane}
+\usefonttheme{structurebold}
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\newif\ifbibliography
+\hypersetup{
+            pdftitle={MT4113, Computing in Statistics},
+            pdfauthor={Lecture 0 - Introduction to Module},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+
+% Prevent slide breaks in the middle of a paragraph:
+\widowpenalties 1 10000
+\raggedbottom
+
+\AtBeginPart{
+  \let\insertpartnumber\relax
+  \let\partname\relax
+  \frame{\partpage}
+}
+\AtBeginSection{
+  \ifbibliography
+  \else
+    \let\insertsectionnumber\relax
+    \let\sectionname\relax
+    \frame{\sectionpage}
+  \fi
+}
+\AtBeginSubsection{
+  \let\insertsubsectionnumber\relax
+  \let\subsectionname\relax
+  \frame{\subsectionpage}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+
+\title{MT4113, Computing in Statistics}
+\author{Lecture 0 - Introduction to Module}
+\date{17 September 2018}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Welcome to MT4113 Computing in Statistics!}
+
+Module instructors:
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Len Thomas
+  \href{mailto:len.thomas@st-andrews.ac.uk}{\nolinkurl{len.thomas@st-andrews.ac.uk}}
+\item
+  Eiren Jacobson
+  \href{mailto:ej45@st-andrews.ac.uk}{\nolinkurl{ej45@st-andrews.ac.uk}}
+\end{itemize}
+
+Module tutor:
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Fanny Empacher
+  \href{mailto:fe21@st-andrews.ac.uk}{\nolinkurl{fe21@st-andrews.ac.uk}}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Why am I taking this module?}
+
+This module will:
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Help me get a job (in industry or research)
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    Computers are essential tools in both pure and applied statistics,
+    and most other walks of life
+  \item
+    Many job applications require experience with given computer
+    packages
+  \item
+    Here, we'll be using one of the dominant packages in statistical
+    computing: R
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Help me keep that job
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    Sooner or later, we need to automate a set of tasks, or extend
+    software to perform new tasks
+  \item
+    For this to go smoothly, we need to know how to write efficient,
+    re-useable programs that work
+  \item
+    Good programming practice will be a major theme of this module -- a
+    very transferrable skill
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Why am I taking this module? III}
+
+This module will:
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Help me out of trouble
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    Many statistical methods make strong assumptions about the
+    underlying distribution of the data.
+  \item
+    By contrast, we will (briefly) cover some some simple, robust,
+    computer-intensive methods that are very powerful yet make only weak
+    assumptions about the data.
+  \item
+    We will also cover methods for optimizing functions -- useful for
+    things like maximizing likelihoods.
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Why am I taking this module? IV}
+
+This module will:
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Help me with other modules
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    R and general programming skills will be useful in other modules and
+    project work.
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Why am I taking this module? V}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Err\ldots{} my course requires me to take a computing module and this
+  looked the least worst option!
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Approximate Syllabus}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Fundamental programming principles (Len \& Eiren), Weeks 1-3
+\item
+  Computer-intensive statistics (Len), Weeks 4-5
+\item
+  Optimization methods (Eiren), Weeks 7-8
+\item
+  Code performance, reprodcibility and graphics (Eren \& Len), Weeks
+  9-10
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Timetable}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Format: Mix of lectures (Monday LTC, Wednesday LTA, 12-1pm) and
+  computer practicals (Friday Comp. classroom, 12-2pm)
+\item
+  Drop-in help sessions: Likely to be Wednesday 1-2pm LTC, with Fanny
+\item
+  Assessment: 60\% in-semester assessment; 40\% final exam
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    1 smaller programming assignment, worth 10\%.
+
+    \begin{itemize}[<+->]
+    \tightlist
+    \item
+      Peer review exercise, for additional feedback.
+    \end{itemize}
+  \item
+    1 group programming project, worth 20\%.
+
+    \begin{itemize}[<+->]
+    \tightlist
+    \item
+      1 larger programming project, worth 30\%.
+    \end{itemize}
+  \end{itemize}
+\item
+  Module web site: on Moodle
+
+  \begin{itemize}[<+->]
+  \tightlist
+  \item
+    Includes fora (news and help), lectures, projects, additional
+    material
+  \item
+    The Moodle site is the module handbook.
+  \end{itemize}
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}{Deadlines}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Published on the module web site
+\item
+  University late coursework policy is linked on the web site
+\item
+  If you have a registered request for flexible deadlines, please
+  discuss this with me or Eiren at the end of this class
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]{Attendence Monitoring}
+
+New University-level policy
+
+\begin{verbatim}
+As with all 3000-5000 Level taught modules in the School of
+Mathematics and Statistics attendance will be monitored at 
+various points over the semester. This is to comply with UKVI 
+regulations and to monitor student wellbeing.  
+For MT4113 attendance will be taken at the practicals of 
+Friday 12th October and Friday 16th November.
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}[fragile]{Notice}
+
+\begin{verbatim}
+    This module requires considerable time investment to 
+    reach your potential (nominal work load for all 15 
+    credit modules is 150 hours, including class time).
+\end{verbatim}
+
+\end{frame}
+
+\end{document}
