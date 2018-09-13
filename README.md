@@ -10,7 +10,7 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 
 ## Lectures <a name="lectures"></a>
 
-### Lecture 1
+### [Lecture 1](https://github.com/MT4113/2018/tree/master/Lectures/Lecture%201)
 
 + Date: 17 September 2018
 + Topic: Computers, Software, and Algorithms
