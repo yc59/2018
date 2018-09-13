@@ -31,7 +31,7 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 + Date: 26 September 2018
 + Topic: Good Programming Practice
 + Lecturer: Eiren Jacobson
-+ Slides: [HTML](https://github.com/MT4113/2018/blob/master/Lectures/Lecture%203/Lecture3_GoodProgrammingPractice.html)
++ Slides: 
 + Readings: 
 
 ### Lecture 4
