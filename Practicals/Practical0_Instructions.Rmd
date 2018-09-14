@@ -1,0 +1,26 @@
+---
+title: "MT4113 Practical 0"
+subtitle: "Getting Started in R"
+author: "Eiren Jacobson"
+date: "14 September 2018"
+output:
+  xaringan::moon_reader:
+    css: ["default", "metropolis.css", "metropolis-fonts.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+# MT4113 Practical 0
+
+- Login using your university ID and password
+
+- Open Apps Anywhere > RStudio
+
+- Go to course Moodle site > R material > Practical 0
+
+- Download data files and follow link to practical exercises
+
+---
