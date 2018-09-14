@@ -136,6 +136,7 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 + Date: 14 September 2018
 + Topic: Getting Started in R
 + Lecturer: Eiren Jacobson
++ Material: https://rexstad.updog.co/question_book/introduction.html
 
 ### Practical 1
 
