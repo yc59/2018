@@ -17,7 +17,7 @@ output:
 
 - Login using your university ID and password
 
-- Open Apps Anywhere > RStudio
+- Open Apps Anywhere > RStudio (yes, it takes forever!)
 
 - Go to course Moodle site > R material > Practical 0
 
