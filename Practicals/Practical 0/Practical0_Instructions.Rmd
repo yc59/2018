@@ -24,3 +24,7 @@ output:
 - Download data files and follow link to practical exercises
 
 ---
+
+# MT4113 Practical 0
+
+- https://rexstad.updog.co/question_book/introduction.html

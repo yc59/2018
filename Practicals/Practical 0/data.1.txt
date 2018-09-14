@@ -1,0 +1,5 @@
+ID Gender Height_cm  Weight_Kg
+1   M       170         78
+2   M       182         86
+3   F       168         72
+4   F       175         76
