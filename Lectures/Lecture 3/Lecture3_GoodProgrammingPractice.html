@@ -23,6 +23,8 @@ class: center, middle, inverse, title-slide
 
 # Topics Covered*
 
+.footnote[**This lecture has been modified from material developed by Eric Rexstad*]
+
 - The advantages of using **functions**
 
 --
@@ -45,7 +47,7 @@ class: center, middle, inverse, title-slide
 
 - Coding **conventions and style**
 
-.footnote[**This lecture has been modified from material developed by Eric Rexstad*]
+
 
 ---
 class: inverse, center, middle
@@ -95,8 +97,6 @@ class: inverse, center, middle
 
 .pull-left[
 
-- Bad practice
-
 
 ```r
 x &lt;- 1:25
@@ -114,14 +114,14 @@ func()
 
 ]
 
-.pull-right[
+--
 
-- Good practice
+.pull-right[
 
 
 ```r
-# A function to calculate the 
-# mean of a numeric vector
+# my.mean calculates the mean 
+# of a numeric vector x
 
 my.mean &lt;- function(x){
   stopifnot(is.numeric(x))
@@ -142,31 +142,194 @@ my.mean(x)
 - **Q:** What are three things that make the example on the right better?
 
 ---
+# What happens in f(x) stays in f(x)
+
+
+```r
+print.and.multiply &lt;- function(x, y) {
+   print(paste('At start of function x=', x, 'y=', y))
+   x &lt;- x*y 
+   print(paste('At end of function x=', x))
+   return(x)
+}
+
+first &lt;- 10
+second &lt;- 20
+new.object &lt;- print.and.multiply(first, second)
+```
+
+```
+## [1] "At start of function x= 10 y= 20"
+## [1] "At end of function x= 200"
+```
+--
+- **Q:** After running the above code, what is the value of `first`?  Of `x`?
+
+---
 
 class: inverse, center, middle
 
 # Environments
 
 ---
+
+# Environments are like address books
+
+- An **environment** associates names with values
+
+.pull-left[
+![](env-pointers-1.png)]
+
+--
+
+.pull-right[
+![](env-pointers-2.png)]  
+
+- Multiple names can point to the same values
+
+---
+
+# What is in your environment?
+
+
+```r
+ls()
+```
+
+```
+## [1] "first"              "func"               "my.mean"           
+## [4] "new.object"         "print.and.multiply" "second"            
+## [7] "x"
+```
+
+![](env.png)
+
+---
+
+# Three types we care about
+
+- Base environment
+  
+  - Contains packages like `base`, `utils`, `stats`, `graphics`
+
+--
+
+- Global environment
+  
+  - Additional variables you have created or packages you have loaded
+  
+  - Should "reset" every time you reopen R
+
+--
+
+- Current environment
+  
+  - Environment inside of a function 
+---
+
 class: inverse, center, middle
 
 # Scoping
 
 ---
 
-# 1. Name Masking
+# Name Masking
+
+- If a name isn't defined in the environment, R looks up one level
+
+--
+
+
+```r
+pi
+```
+
+```
+## [1] 3.141593
+```
+
+--
+
+
+```r
+pi &lt;- 1
+
+pi
+```
+
+```
+## [1] 1
+```
+
+--
+
+😱😱😱
+
+
+```r
+rm(pi)
+```
 
 ---
 
-# 2. Functions vs. variables
+# Functions vs. variables
+
+- Finding functions works the same way as finding variables
+
+--
+
+- You *can* have both `x &lt;- 1:10` and `x &lt;- function(x){x + 10}` ...
+
+--
+  
+  - but please don't.
+  
+--
+  
+- Multiple functions can have the same name
+  - R will default to the version in the most recently loaded package
+---
+
+# A fresh start
+
+- each use of a function is independent of any previous uses
+
+--
+
+- a function's environment is wiped clean for each new use
 
 ---
 
-# 3. A fresh start
+# Dynamic lookup
 
----
+- Lookup happens when code or function is executed
 
-# 4. Dynamic lookup
+--
+
+- It does not matter what the value was when the code or function was created
+
+
+```r
+x &lt;- 15
+
+f &lt;- function(x){x+1}
+
+f(x)
+```
+
+```
+## [1] 16
+```
+
+```r
+x &lt;- 20
+
+f(x)
+```
+
+```
+## [1] 21
+```
 
 ---
 class: inverse, center, middle
