@@ -3,6 +3,9 @@ title: "MT4113, Computing in Statistics"
 author: "Lecture 1 - Hardware, software and algorithms"
 date: "17 September 2018"
 output:
+  pdf_document: default
+  ioslides_presentation:
+    incremental: yes
   beamer_presentation:
     colortheme: crane
     fonttheme: structurebold
@@ -11,9 +14,6 @@ output:
     slide_level: 2
     theme: EastLansing
     toc: yes
-  ioslides_presentation:
-    incremental: yes
-  pdf_document: default
   html_document: default
 ---
 
@@ -156,6 +156,8 @@ next
 
 # Software for statistics 
 
+## Which software to use for statistics?
+
 Most of the time you have no choice!
 
 *   Use what the client uses/wants
@@ -177,16 +179,20 @@ Most of the time you have no choice!
     * Find out which bits are slow and port them to a 3GL
     * ... or re-write the whole thing into a 3GL
     * Consider what kind of user interface you need
-* For specialized applications, look at the specialized packages
+* For specialized applications, look at the specialized packages, e.g.,
+    * JAGS/BUGS/Stan - Bayesian calculations
+    * EpiInfo - epidemeology 
+    * Distance - widlife surveys (made in St Andrews!)
+    * ... many many others ...
 
 ## R
 
-* a language and environment for statistical computing and graphics 
-* open source, free
-* widely used by academic statisticians
-* based on the S 4GL
-* extremely extensible
-* rapidly developing and maturing
+* ``A language and environment for statistical computing and graphics''
+* Open source, free
+* Widely used by academic statisticians
+* Based on the S 4GL
+* Extremely extensible
+* Rapidly developing and maturing
 
 ***
 
@@ -199,7 +205,7 @@ Most of the time you have no choice!
 ## Why use R?
 
  * Pros:
-  * Contains cutting-edge methods (usually as add-on packages)
+    * Contains cutting-edge methods (usually as add-on packages)
     * Highly extensible
     * Cannot beat the price
 * Cons:
@@ -232,21 +238,25 @@ Most of the time you have no choice!
     * undertaking a sufficiently complex analysis that organisation becomes critical
     * description of input and output are critical to ensure reusability
     
-*  When performing functional programming, 
+*  Note: when performing functional programming, 
     * there are elements of the R language not previously used that become useful 
 
-# Algorithms and computer code 
+# Preview of next lecture 
 
-Note to self - expand again?
+## Preview of next lecture
 
 * Algorithm: an *ordered* sequence of *unambiguous* and well-defined
     instructions for *performing some task* and *halting* in finite time
 * Important features
-    * an ordered sequence
-    * unambiguous and well defined instructions each instruction is clear, do-able, and can be done without difficulty
-    * performs some task algorithm needs to be complete, with nothing left out
-    * halts in finite time i.e., the algorithm needs to terminate
+    * An ordered sequence
+    * Unambiguous and well defined instructions each instruction is clear, do-able, and can be done without difficulty
+    * Performs some task algorithm needs to be complete, with nothing left out
+    * Halts in finite time i.e., the algorithm needs to terminate
 
 # Description of Assignment 1
 
-Goes here!
+## Description of Assignment 1
+
+* We will describe the first assignment, which is available from the class Moodle.
+* Set: today!  Due: 2 weeks today, 1 Oct.
+* Peer review.  Set 1 Oct.  Due 8 Oct.

@@ -50,11 +50,82 @@ class: inverse, center, middle
 
 1. Avoid repeating the same code over and over
 
+--
+
 2. Self-contained
+
+--
 
 3. Easier to update and propagate changes
 
+--
+
 4. Make code more readable
+
+--
+
+---
+
+# What happens in f(x) stays in f(x)
+
+--
+
+.center[![image](220px-function_machine2-svg.png)]
+
+--
+
+- Concept of **encapsulation**
+    - send everything needed for computation into function as arguments
+    - return outputs explicitly with `return()` function
+    
+    
+---
+
+# What happens in f(x) stays in f(x)
+
+--
+
+.pull-left[
+
+- Bad practice
+
+```{r comment='#'}
+
+x <- 1:25
+
+func <- function(){
+  sum(x)/length(x)
+  }
+
+func()
+
+```
+
+]
+
+.pull-right[
+
+- Good practice
+
+```{r comment='#'}
+
+# A function to calculate the 
+# mean of a numeric vector
+
+my.mean <- function(x){
+  stopifnot(is.numeric(x))
+  m <- sum(x)/length(x)
+  return(m)
+  }
+
+x <- 1:25
+my.mean(x)
+
+```
+
+]
+
+- **Q:** What are three things that make the example on the right better?
 
 ---
 
