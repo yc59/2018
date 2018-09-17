@@ -198,6 +198,8 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 
 ### Assignment 1
 
++ Instructions: [PDF](https://github.com/MT4113/2018/blob/master/Assignments/A1/MT4113A1-2018.pdf)    
+
 ### Assignment 2
 
 ### Assignment 3
