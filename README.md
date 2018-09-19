@@ -14,6 +14,7 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 
 + Date: 17 September 2018
 + Topic: Course Introduction
++ Lecturer: Len Thomas
 + Materials: [Slides](https://github.com/MT4113/2018/blob/master/Lectures/Lecture%200/lect0_slides.pdf), [Notes](https://github.com/MT4113/2018/blob/master/Lectures/Lecture%200/lect0_handout.pdf)
 
 ### [Lecture 1](https://github.com/MT4113/2018/tree/master/Lectures/Lecture%201)
