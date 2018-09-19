@@ -94,6 +94,8 @@ is distributed with a Student's *t*-distribution with $k$ degrees of freedom.
 
 Make sure each of your functions are clearly written, with a useful amount of commenting. Pay attention to the tips on good programming style given in the lectures and practicals, including things like spacing between blocks of code, indenting and spaces within lines of code, use of clear variable names, etc. Use vectorization where appropriate.  Include appropriate error traps on the inputs; when the function detects an incorrect input it should stop program execution[^1] with *exactly* the error message `invalid arguments`. 
 
+Update 17th Sept 2018: Please do not use any additional `R` libraries in your solution beyond those loaded in a standard `R` installation. Your solution therfore should not include the `library()` or `require()` functions.
+
 ## What to hand in
 
 Before 11:59am 1 October, upload the following to MMS:
