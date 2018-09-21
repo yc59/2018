@@ -3,6 +3,9 @@ title: "MT4113, Computing in Statistics"
 author: "Lecture 2 - Algorithms to functions"
 date: "19 September 2018"
 output:
+  pdf_document: default
+  ioslides_presentation:
+    incremental: yes
   beamer_presentation:
     colortheme: crane
     fonttheme: structurebold
@@ -11,9 +14,6 @@ output:
     slide_level: 2
     theme: EastLansing
     toc: yes
-  ioslides_presentation:
-    incremental: yes
-  pdf_document: default
   html_document: default
 ---
 
@@ -326,7 +326,7 @@ apply(X = iris3, MARGIN = 2, FUN = mean)
 
 ## what is "modular programming"?
 
-Splittling a program into discrete, reuseable blocks of code so that each block does a small amount.
+Splitting a program into discrete, reuseable blocks of code so that each block does a small amount.
 
 ## Motivation
 
@@ -437,7 +437,7 @@ eda(x)
 ## Module interfaces - passing information in
 
 * In general programmer-speak, the things you pass into modules are called "parameters"
-* In `R they are called "arguments"
+* In `R` they are called "arguments"
 * E.g., in
 
 ```{r eval=FALSE}
@@ -478,7 +478,8 @@ print.and.multiply(var.1, var.2)
 ```{r eval=TRUE}
 print.and.multiply <- function (x, y) {
     cat('Inside function x=', x, 'y=', y, '\n')
-    return(x * y)
+    x <- x * y
+    return(x)
 }
 var.1 <- 10
 var.2 <- 20
@@ -502,7 +503,8 @@ var.1
 ~~~
 print.and.multiply <- function (ByReference x, y) {
     cat('Inside function x=', x, 'y=', y, '\n')
-    return(x * y)
+    x <- x * y
+    return(x)
 }
 var.1 <- 10
 var.2 <- 20

@@ -1,0 +1,15 @@
+\frametitle{Best practice for modular programming}
+
+\begin{itemize}[<+->]
+\tightlist
+\item
+  Pass everything requried by the function in as an argument
+\item
+  Pass everything out using a \texttt{return} statement
+\item
+  No global side effects
+\item
+  See next lecture for details, and many other tips for good programming
+  practice\ldots{}
+\end{itemize}
+

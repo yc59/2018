@@ -1,0 +1,9 @@
+DRY - do not repeat yourself
+
+how big should a module be (old Lecture 4 stuff)
+
+eda function (old Lecture 4), what's wrong and how to make it better
+(add comments, fix global side effect)
+
+Good programming practice stuff - abbreviated from Lecture 5
+ including horizontal spacing (use the Google R code guideline?)

@@ -1,0 +1,141 @@
+\documentclass[11 pt,A4]{article}
+\usepackage{epsf,graphics,graphicx,fancyhdr,amsfonts,amsmath,color}
+\font\BBb=msbm10
+\usepackage{ifthen}
+
+\setlength{\textwidth}{6.5 in}
+\setlength{\oddsidemargin}{0cm}
+\setlength{\evensidemargin}{0cm}
+\setlength{\topmargin}{-0.5 in}
+\setlength{\textheight}{9.0 in}
+\parskip 0.1 in
+
+ \pagestyle{plain}
+
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bn}{\begin{enumerate}}
+\newcommand{\en}{\end{enumerate}}
+\newcommand{\bi}{\begin{itemize}}
+\newcommand{\ei}{\end{itemize}}
+\newcommand{\xbar}{\overline{x}}
+\newcommand{\ybar}{\overline{y}}
+\newcommand{\wh}{\widehat}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\da}{\downarrow}
+\newcommand{\nea}{\nearrow}
+\newcommand{\sea}{\searrow}
+\newcommand{\swa}{\swarrow}
+\newcommand{\mc}{\multicolumn}
+\newcommand{\vs}{\vspace{1cm}}
+\newcommand{\vssm}{\vspace{0.5cm}}
+\newcommand{\be}{\begin{eqnarray}}
+\newcommand{\ee}{\end{eqnarray}}
+\newcommand{\bes}{\begin{eqnarray*}}
+\newcommand{\ees}{\end{eqnarray*}}
+
+\newcommand{\tc}{\textcolor}
+\newcommand{\tcb}{\textcolor{blue}}
+\newcommand{\tcr}{\textcolor{red}}
+\newcommand{\tcg}{\textcolor{green}}
+\newcommand{\tcm}{\textcolor{magenta}}
+\newcommand{\tcc}{\textcolor{cyan}}
+
+\newcommand{\nt}{\tcr{\bf n}_t}
+\newcommand{\nT}{{\bf n}_{1:T}}
+\newcommand{\npt}{\tcr{\bf n}_{t-1}}
+\newcommand{\yt}{\tcb{\bf y}_t}
+\newcommand{\ypt}{\tcb{\bf y}_{t-1}}
+\newcommand{\yT}{{\bf y}_{1:T}}
+\newcommand{\gtheta}{\tcg{\theta}}
+
+\newcommand{\solutions}{1}
+
+%Stuff to make more compact
+  \renewcommand{\baselinestretch}{1.0}
+  \oddsidemargin -1.5cm \evensidemargin -1.5in
+  \topmargin=-1.5cm \headheight=0pt
+  \headsep 0.5cm \textwidth=19cm
+  \textheight=25.0cm \columnsep 10pt \columnseprule 0pt \parindent 0pt
+  \parskip 6.0pt
+%  \usepackage{tweaklist}
+%  \renewcommand{\itemhook}{
+%    \setlength{\topsep}{-0pt}
+%    \setlength{\itemsep}{6pt}
+%    \setlength{\parsep}{6pt}
+%  }
+%  \renewcommand{\enumhook}{
+%    \setlength{\topsep}{-0pt}
+%    \setlength{\itemsep}{6pt}
+%    \setlength{\parsep}{6pt}
+%  }
+%end of this stuff
+
+
+\usepackage{color}
+
+\pagestyle{myheadings}
+\markright{Computing in Statistics \hspace{3.0 in}}
+
+\begin{document}
+\thispagestyle{empty}
+
+\definecolor{purple}{rgb}{0.4,0.1,0.5}
+\definecolor{lgray}{gray}{0.8}
+\definecolor{lcyan}{cmyk}{0.4,0.2,0.1,0.1}
+\definecolor{lred}{cmyk}{0.1,0.4,0.1,0.1}
+\definecolor{lred2}{cmyk}{0.1,0.2,0.1,0.1}
+\definecolor{lcyan2}{cmyk}{0.5,0.2,0.1,0.1}
+\definecolor{lcyan3}{cmyk}{0.1,0.2,0.3,0.1}
+
+\section*{MT 4113: Computing in Statistics, Practical 1, additional practice material}
+
+This sheet contains additional material intended to give you some more practice with control structures, (a bit of) vectorization, and function writing.
+
+\subsection*{Part 1 -- Control structures}
+
+\bn
+ 
+ \item Write R code that simulates a number from a random uniform distribution; if this number is more than or equal to 0.5 print out the word ``lucky'', and if less than 0.5 print out ``unlucky''.
+ 
+ \item Here is some code
+\begin{verbatim}
+x <- seq(-10, 10, by = 0.01)
+y <- x ^ 2
+plot(x, y, type = 'l')
+\end{verbatim}
+Revise this code so that $y = x ^ 2$ when $x \geq 0$ and $y = 0$ when $x < 0$.
+
+\item Write code to forecast the weather.  Your code should print one of three forecasts at random (with equal probablity of each occuring): either ``rainy'', ``hurricane'', or ``hailstorms''.  (Hint: if you want to use \texttt{switch()} then you should look at the help if the first argument to it will be an integer, as it works differently from the notes in this case.)
+ 
+\item Extend the above code, so that it repeatedly forecasts the weather until you get a rainy forecast.  Print out the number of forecasts output before getting the first rainy forecast. 
+
+\item Edit the above code so it also stops if it reaches 4 forecasts without getting ``rainy''.  Have it print out an appropriate message (i.e., if it forecast ``rainy'' then as before, but if not a message saying it stopped after 4 tries).
+
+\item Simulate a 4x3 matrix of random normal deviates (mean 0 sd 1).  Compute the sum of each row.
+
+\en
+
+\subsection*{Part 2 -- Functions}
+
+\bn
+ 
+\item Take the weather forecast code from question 3 of Part 1 and turn it into a function, \texttt{forecast} that has no arguments, but returns the forecast as a character string.  Once this function is defined, it should be possible to type \texttt{forecast()} and get a forecast.  I could save 10 forecasts with
+\begin{verbatim}
+n <- 10
+forecasts <- numeric(n)
+for(i in 1:n){
+  forecasts[i] <- forecast()
+}\end{verbatim}
+
+\item Extend your \texttt{forecast} function so that it has one argument, \texttt{n}, which is the number of forecasts to produce.  Then you should be able to type \texttt{forecast(10)} or \texttt{forecast(n = 10)} and get a vector of 10 forecasts.
+
+\item Extend the code from question 2 on the last tutorial to turn it into a function, \texttt{plot.quadratic(limits)} where \texttt{limits} is a vector of length 2 that gives the lower and upper limits for the x-axis.  Give the limits argument default values.  Add some error checking on the input if you like.
+
+\item (Advanced optional question - only attempt if you found the previous ones easy, or if you like a challenge!)  Write a function \texttt{plot.function} so you can pass in the limits but also the type of univariate function you want to plot (e.g., $x^2$ or $\sin(x)$, etc).  It will then plot that function within the specified limits.  (Hint: in R, you can pass in functions as function arguments.)
+
+\en
+
+
+\end{document}
