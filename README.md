@@ -148,8 +148,9 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 ### Practical 1
 
 + Date: 21 September 2018
-+ Topic: Modular Programming
++ Topic: Functions
 + Lecturer: Len Thomas
++ Exercises: [HTML](https://github.com/MT4113/2018/blob/master/Practicals/Practical%201/prac01-functions-2018_Question.html)
 
 ### Practical 2
 
