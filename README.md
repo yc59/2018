@@ -142,8 +142,9 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 + Topic: Getting Started in R
 + Lecturer: Eiren Jacobson
 + Exercises: https://rexstad.updog.co/question_book/introduction.html
-+ Data files: [data.1.txt](https://github.com/MT4113/2018/blob/master/Practicals/Practical%200/data.1.txt), [data.2.dat](https://github.com/MT4113/2018/blob/master/Practicals/Practical%200/data.2.dat)
 + Solutions: https://rexstad.updog.co/solution_book/introduction.html
++ Data files: [data.1.txt](https://github.com/MT4113/2018/blob/master/Practicals/Practical%200/data.1.txt), [data.2.dat](https://github.com/MT4113/2018/blob/master/Practicals/Practical%200/data.2.dat)
+
 
 ### Practical 1
 
