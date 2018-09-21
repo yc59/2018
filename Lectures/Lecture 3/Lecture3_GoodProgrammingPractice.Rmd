@@ -29,17 +29,11 @@ output:
 
 --
 
-- Approaches to **testing and debugging**
-
---
-
 - Software **design** for statisticians
 
 --
 
 - Coding **conventions and style**
-
-
 
 ---
 class: inverse, center, middle
@@ -50,25 +44,30 @@ class: inverse, center, middle
 
 # Why use functions?
 
-1. Avoid repeating the same code over and over
+1. Don't Repeat Yourself
+
+  - Avoid repeating the same code over and over
+  
+--
+
+2. Functions Do One Thing
+  - Small chunks with defined inputs and outputs are easier to test 
 
 --
 
-2. Self-contained
+3. Easier to update and propagate changes 
+  - Only have to change things once
 
 --
 
-3. Easier to update and propagate changes
-
+4. Make code more organized and readable
+  - Each function is a step of the analysis
 --
 
-4. Make code more readable
-
---
 
 ---
 
-# What happens in f(x) stays in f(x)
+# What happens in `f(x)` stays in `f(x)`
 
 --
 
@@ -77,13 +76,14 @@ class: inverse, center, middle
 --
 
 - Concept of **encapsulation**
-    - send everything needed for computation into function as arguments
+    - send everything into function as arguments
     - return outputs explicitly with `return()` function
-    
+    - no global side effects 🚫🌏
+
     
 ---
 
-# What happens in f(x) stays in f(x)
+# What happens in `f(x)` stays in `f(x)`
 
 --
 
@@ -128,7 +128,47 @@ my.mean(x)
 - **Q:** What are three things that make the example on the right better?
 
 ---
-# What happens in f(x) stays in f(x)
+# What happens in `f(x)` stays in `f(x)`
+
+- Example from last class:
+
+```{r}
+eda <- function (x) {
+  par(mfrow = c(1 ,3))
+  hist(x, probability = TRUE)
+  lines(density(x))
+  boxplot(x, horizontal = TRUE)
+  rug(x)
+  qqnorm(x)
+  return(summary(x))
+}
+```
+
+- Issues: no comments and global change in par()
+
+---
+
+# What happens in `f(x)` stays in `f(x)`
+
+```{r}
+eda <- function (x) {
+  # Function to generate descriptive plots of
+  # a numeric vector x
+  p <- par(no.readonly = TRUE) # save existing graphical params
+  par(mfrow = c(1 ,3)) # setup 1x3 graphical device
+  hist(x, probability = TRUE) # plot 1
+  lines(density(x)) # add density
+  boxplot(x, horizontal = TRUE) # plot 2
+  rug(x) # add rug to boxplot
+  qqnorm(x) # plot 3
+  par(p) # reset graphical params
+  return(summary(x)) # return summary stats
+} # end eda
+
+
+```
+---
+# What happens in `f(x)` stays in `f(x)`
 
 ```{r}
 
@@ -170,7 +210,7 @@ class: inverse, center, middle
 
 ---
 
-# What is in your environment?
+# What's in your environment?
 
 ```{r}
 ls()
@@ -199,6 +239,8 @@ ls()
 - Current environment
   
   - Environment inside of a function 
+
+
 ---
 
 class: inverse, center, middle
@@ -209,7 +251,7 @@ class: inverse, center, middle
 
 # Name Masking
 
-- If a name isn't defined in the environment, R looks up one level
+- If a name isn't defined in the environment, `R` looks up one level 
 
 --
 
@@ -257,6 +299,7 @@ rm(pi)
   
 - Multiple functions can have the same name
   - R will default to the version in the most recently loaded package
+  - order of search can be seen using `search()`
 ---
 
 # A fresh start
@@ -289,10 +332,6 @@ x <- 20
 f(x)
 ```
 
----
-class: inverse, center, middle
-
-# Testing and Debugging
 
 ---
 class: inverse, center, middle
@@ -300,9 +339,82 @@ class: inverse, center, middle
 # Software Design
 
 ---
+
+# Strategies for designing code
+
+- Always a good idea to consider design before implementation
+
+  - strategies include top-down (rigid) and bottom-up (iterative) approaches
+  
+--
+
+- Visual aids like flowcharts can be used for planning and documentation
+
+--
+
+- Outlines or pseudocode are helpful for breaking a big task into maneageable bits
+
+---
 class: inverse, center, middle
 
 # Coding Conventions
 
 ---
+
+# Conventions and style
+
+- Encompasses everything from file names to spacing around operators
+
+--
+
+- Increases readability
+
+--
+
+- As with the Oxford comma, people have strong opinions
+
+--
+
+- Consistency is most important
+
+---
+
+# Conventions and style
+
+- The things we care about* in this course are:
+
+ .footnote[*HINT: these are things we will be looking for in your assignments!]
+
+--
+
+  - Use `<-` for assignment, `=` for function arguments, `==` for Boolean
+  
+--
+
+  - Start all functions with comments listing purpose, inputs, outputs
+
+--
+
+  - Use indentation and spacing to make code 2-D
+
+--
+
+  - There should be spaces around operators and after commas
+
+--
+
+  - Lines should be <80 characters long
+
+--
+
+  - Use meaningful variable names in a consistent style
+
+---
+
+# Conventions and style
+
+- Style guides are available at
+  - https://google.github.io/styleguide/Rguide.xml
+  - http://style.tidyverse.org/ (inc. packages to restyle code)
+  
 
