@@ -36,8 +36,8 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 + Date: 26 September 2018
 + Topic: Good Programming Practice
 + Lecturer: Eiren Jacobson
-+ Slides: 
-+ Readings: 
++ Slides: [PDF](https://github.com/MT4113/2018/blob/master/Lectures/Lecture%203/Lecture3_GoodProgrammingPractice.pdf)
++ Readings: [Google R Style Guide](https://google.github.io/styleguide/Rguide.xml), [Tidyverse R Style Guide](http://style.tidyverse.org/), [Advanced R](http://adv-r.had.co.nz/)
 
 ### Lecture 4
 
