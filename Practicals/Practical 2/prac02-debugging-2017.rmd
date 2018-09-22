@@ -31,8 +31,8 @@ solution <- TRUE
     - not always obvious in `R`
 
 ```{r}
-bad <- function(x=7) {
-  if (x>10) {
+bad <- function(x = 7) {
+  if (x > 10) {
     y <- ln(22)
   } else {
     y <- 7
@@ -91,18 +91,18 @@ The algorithm:
 Example run:
 
 ```{r, echo=FALSE}
-findruns.correct <- function(x,k) {
+findruns.correct <- function(x, k) {
   n <- length(x)
   runs <- NULL
-  for (i in 1:(n-k+1)) {
-    if (all(x[i:(i+k-1)] == 1)) runs <- c(runs, i)
+  for (i in 1:(n - k + 1)) {
+    if (all(x[i:(i + k - 1)] == 1)) runs <- c(runs, i)
   }
   return(runs)
 }
 ```
 
 ```{r}
-test.case <- c(1,0,0,1,1,1,0,1,1)
+test.case <- c(1, 0, 0, 1, 1, 1, 0, 1, 1)
 findruns.correct(test.case, 2)
 ```
 indicating runs of length 2 begin in positions 4, 5, and 8.
@@ -110,11 +110,11 @@ indicating runs of length 2 begin in positions 4, 5, and 8.
 Imagine however, you have been presented with code shown here:
 
 ```{r, echo=TRUE}
-findruns <- function(x,k) {
+findruns <- function(x, k) {
   n <- length(x)
   runs <- NULL
-  for (i in 1:(n-k)) {
-    if (all(x[i:i+k-1] == 1)) runs <- c(runs, i)
+  for (i in 1:(n - k)) {
+    if (all(x[i:i + k - 1] == 1)) runs <- c(runs, i)
   }
   return(runs)
 }
@@ -182,9 +182,9 @@ With your new friend, the debugger, set about your task of
 There are actually two errors in the code provided.
 
 - Parenthesis missing from the line inside the `for` loop.  
-    - The expression `i:i+k-1` is screwy because `i:i` will be executed before the `i+k-1`.  To rectify this, protect `(i+k-1)` with parentheses so it is computed first.
+    - The expression `i:i + k - 1` is screwy because `i:i` will be executed before the `i + k - 1`.  To rectify this, protect `(i + k - 1)` with parentheses so it is computed first.
 - the condition of the `for` loop itself is incorrect
-    - the last pass through the loop is performed prematurely, the final pass through the loop should occur when `i = n-k+1` or 8 in the case of our 9-element vector seeking series of length 2.
+    - the last pass through the loop is performed prematurely, the final pass through the loop should occur when `i = n - k + 1` or 8 in the case of our 9-element vector seeking series of length 2.
 </div>
 ```
 
@@ -220,44 +220,44 @@ For example, this figure depicts producing a value from $\sim U(0,1)$ (0.6 in th
 
 ```{r, invcdf, echo=FALSE, fig.height=3}
 ppareto <- function(x, alpha, x0) {
-  result <- 1 - (x/x0)^(-alpha+1)
+  result <- 1 - (x / x0) ^ (-alpha + 1)
   return(result)
 }
 qpareto <- function(p, alpha, x0) {
-  result <- x0 * (1-p)^(-1/(alpha-1))
+  result <- x0 * (1 - p) ^ (-1 / (alpha - 1))
   return(result)
 }
-mys <- seq(1, 500, length=100)
-plot(mys, ppareto(mys, 1.3,1), type='l', lwd=2,
-     ylab="CDF(pareto)", xlab="Deviate")
+mys <- seq(1, 500, length = 100)
+plot(mys, ppareto(mys, 1.3, 1), type='l', lwd=2,
+     ylab = "CDF(pareto)", xlab = "Deviate")
 my.rand <- 0.6
-curve.touch <- qpareto(my.rand,1.3,1)
-arrows(-100,my.rand, curve.touch,my.rand, lty=3, length=0.1)
-arrows(curve.touch,my.rand, curve.touch, 0, lty=3, length=0.1)
+curve.touch <- qpareto(my.rand, 1.3, 1)
+arrows(-100, my.rand, curve.touch, my.rand, lty = 3, length = 0.1)
+arrows(curve.touch, my.rand, curve.touch, 0, lty = 3, length = 0.1)
 text(32, 0, "32", col="red")
 ```
 
 ```{r, echo=solution}
 dpareto <- function(x, alpha, x0) {
-  t1 <- (alpha-1) / x0
-  t2 <- (x/x0) ^ -alpha
+  t1 <- (alpha - 1) / x0
+  t2 <- (x / x0) ^ -alpha
   result <- t1 * t2
   return(result)
 }
 
 ppareto <- function(x, alpha, x0) {
-  result <- 1 - (x/x0)^(-alpha+1)
+  result <- 1 - (x / x0) ^ (-alpha + 1)
   return(result)
 }
 
 qpareto <- function(p, alpha, x0) {
-  result <- x0 * (1-p)^(-1/(alpha-1))
+  result <- x0 * (1 - p) ^ (-1 / (alpha - 1))
   return(result)
 }
 
 rpareto <- function(n, alpha, x0) {
-  x <- vector(length=n)
-  result <- qpareto(p=runif(n), alpha, x0)
+  x <- vector(length = n)
+  result <- qpareto(p = runif(n), alpha, x0)
 }
 ```
 
