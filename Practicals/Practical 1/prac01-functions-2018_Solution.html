@@ -449,7 +449,7 @@ M3
 <hr />
 <p>Dr. Steiger recommends a t-test, using a test statistic developed by Williams (1959), as follows.</p>
 <p>Assume a data generating process that generates trivariate data, <span class="math inline">\(\{x_1, x_2, x_3\}\)</span> where the correlation between variable <span class="math inline">\(i\)</span> and <span class="math inline">\(j\)</span> is denoted <span class="math inline">\(\rho_{i,j}\)</span>. We have a sample of data <span class="math inline">\(X\)</span>, where <span class="math inline">\(X\)</span> is a data matrix with <span class="math inline">\(n\)</span> rows and 3 columns (corresponding to the three variables). Let <span class="math inline">\(R\)</span> be the corresponding 3x3 correlation matrix, such that <span class="math inline">\(R_{i,j}\)</span> (i.e., the <span class="math inline">\(i\)</span>th row and <span class="math inline">\(j\)</span>th column of the matrix <span class="math inline">\(R\)</span>) corresponds to the correlation of column <span class="math inline">\(i\)</span> of <span class="math inline">\(X\)</span> with column <span class="math inline">\(j\)</span>. We wish to test the null hypothesis <span class="math inline">\(\rho_{1,3} = \rho_{2,3}\)</span> against the alternative hypothesis <span class="math inline">\(\rho_{1,3} \neq \rho_{2,3}\)</span>. The test statistic is given by</p>
-<p><span class="math display">\[T = (R_{1,3} - R_{2,3}) \sqrt{\frac{(n-1)(1+r_{1,2})}{2\frac{n-1}{n-3} |R| + \left(\frac{R_{1,3} + R_{2,3}}{2} \right)^2\left(1-R_{1,2}\right)^3}}\]</span></p>
+<p><span class="math display">\[T = (R_{1,3} - R_{2,3}) \sqrt{\frac{(n-1)(1+R_{1,2})}{2\frac{n-1}{n-3} |R| + \left(\frac{R_{1,3} + R_{2,3}}{2} \right)^2\left(1-R_{1,2}\right)^3}}\]</span></p>
 <p>where <span class="math inline">\(|R|\)</span> is the determinant of <span class="math inline">\(R\)</span>. If the null hypothesis is true, <span class="math inline">\(T\)</span> follows a Student’s t-distribution with <span class="math inline">\(n-3\)</span> degrees of freedom.</p>
 </div>
 <div id="algorithm" class="section level2">
@@ -689,7 +689,7 @@ pair.correlation.test(student.performance)</code></pre>
   covar.mat[1, 2] &lt;- rho[1] * sd[1] * sd[2]
   covar.mat[1, 3] &lt;- rho[2] * sd[1] * sd[3]
   covar.mat[2, 3] &lt;- rho[3] * sd[2] * sd[3]
-  #Note - there are more elegant ways to copy the upper triangle to the lower triange!
+  #Note - there are more elegant ways to copy the upper triangle to the lower triangle!
   covar.mat[2, 1] &lt;- covar.mat[1, 2]
   covar.mat[3, 1] &lt;- covar.mat[1, 3]
   covar.mat[3, 2] &lt;- covar.mat[2, 3]

@@ -3,14 +3,14 @@ title: "Practical 1 - getting to grips with functions"
 author: "MT4113"
 date: "21 September 2018"
 output:
-  pdf_document: default
   html_document:
     css: try-soln.css
     number_sections: yes
+  pdf_document: default
 ---
 ```{r, include=FALSE}
 help <- TRUE
-solution <- TRUE
+solution <- FALSE
 ```
 
 ```{asis, echo=solution}
@@ -62,7 +62,7 @@ Dr. Steiger recommends a t-test, using a test statistic developed by Williams (1
 
 Assume a data generating process that generates trivariate data, $\{x_1, x_2, x_3\}$ where the correlation between variable $i$ and $j$ is denoted $\rho_{i,j}$.  We have a sample of data $X$, where $X$ is a data matrix with $n$ rows and 3 columns (corresponding to the three variables).  Let $R$ be the corresponding 3x3 correlation matrix, such that $R_{i,j}$ (i.e., the $i$th row and $j$th column of the matrix $R$) corresponds to the correlation of column $i$ of $X$ with column $j$.  We wish to test the null hypothesis $\rho_{1,3} = \rho_{2,3}$ against the alternative hypothesis $\rho_{1,3} \neq \rho_{2,3}$.  The test statistic is given by
 
-$$T = (R_{1,3} - R_{2,3}) \sqrt{\frac{(n-1)(1+r_{1,2})}{2\frac{n-1}{n-3} |R| + \left(\frac{R_{1,3} + R_{2,3}}{2} \right)^2\left(1-R_{1,2}\right)^3}}$$
+$$T = (R_{1,3} - R_{2,3}) \sqrt{\frac{(n-1)(1+R_{1,2})}{2\frac{n-1}{n-3} |R| + \left(\frac{R_{1,3} + R_{2,3}}{2} \right)^2\left(1-R_{1,2}\right)^3}}$$
 
 where $|R|$ is the determinant of $R$.  If the null hypothesis is true, $T$ follows a Student's t-distribution with $n-3$ degrees of freedom.
 
@@ -327,7 +327,7 @@ rnorm.trivariate <- function(n, mean, sd, rho) {
   covar.mat[1, 2] <- rho[1] * sd[1] * sd[2]
   covar.mat[1, 3] <- rho[2] * sd[1] * sd[3]
   covar.mat[2, 3] <- rho[3] * sd[2] * sd[3]
-  #Note - there are more elegant ways to copy the upper triangle to the lower triange!
+  #Note - there are more elegant ways to copy the upper triangle to the lower triangle!
   covar.mat[2, 1] <- covar.mat[1, 2]
   covar.mat[3, 1] <- covar.mat[1, 3]
   covar.mat[3, 2] <- covar.mat[2, 3]
