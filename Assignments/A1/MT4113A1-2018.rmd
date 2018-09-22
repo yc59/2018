@@ -94,7 +94,7 @@ is distributed with a Student's *t*-distribution with $k$ degrees of freedom.
 
 Make sure each of your functions are clearly written, with a useful amount of commenting. Pay attention to the tips on good programming style given in the lectures and practicals, including things like spacing between blocks of code, indenting and spaces within lines of code, use of clear variable names, etc. Use vectorization where appropriate.  Include appropriate error traps on the inputs; when the function detects an incorrect input it should stop program execution[^1] with *exactly* the error message `invalid arguments`. 
 
-Update 17th Sept 2018: Please do not use any additional `R` libraries in your solution beyond those loaded in a standard `R` installation. Your solution therfore should not include the `library()` or `require()` functions.
+Please do not use any additional `R` libraries in your solution beyond those loaded in a standard `R` installation. Your solution therfore should not include the `library()` or `require()` functions.[^2]
 
 ## What to hand in
 
@@ -111,7 +111,7 @@ pass.test <- (length(x)==10 & is.numeric(x))
 # pass.test takes on the value TRUE if the object 'x' contains 10 numeric values
 ```
 	
-* Also within the text file named `asmt1.r` add one or more additional **functions** (not open code) used to test the `rnorm()`, `rchisq()` and `rt()` functions.  The test function(s) will not be part of the automated testing.  This part of the assignment is open-ended; I wish to see what creativity you can use to test your own code.  However the test function(s) **must** be functions and contain sufficient documentation so that I know what it is the test(s) are trying to accomplish.  If your test code is not written in the form of functions, they will interfere with my automated testing procedure, causing possible loss of marks.
+* Also within the text file named `asmt1.r` add one or more additional **functions** (not open code) used to test the `my.rnorm()`, `my.rchisq()` and `my.rt()` functions.[^3]  The test function(s) will not be part of the automated testing.  This part of the assignment is open-ended; I wish to see what creativity you can use to test your own code.  However the test function(s) **must** be functions and contain sufficient documentation so that I know what it is the test(s) are trying to accomplish.  If your test code is not written in the form of functions, they will interfere with my automated testing procedure, causing possible loss of marks.
 
 If you hand work in late, it will be subject to the late work penalty described on the School's web page [http://www.st-andrews.ac.uk/maths/current/ug/information/latepenalties/] and summarised as *A late piece of work is penalised with an initial penalty of 15\% of the maximum available mark, and then a further 5\% per 8-hour period, of part thereof.*  Do not wait until the morning of the due date to try uploading your work to MMS -- if the upload fails at that point, your work will be discounted as late.
 
@@ -139,3 +139,5 @@ There are 50 marks on offer for the assignment.
 * Mood, A.M., F.A. Graybill, and D.C. Boes. 1974. Introduction to the theory of statistics. Third Edition. McGraw Hill.
 
 [^1]: See the function `stop()` for how to do this.
+[^2]: This paragraph added on 17th Sept.
+[^3]: This sentence updated on 22nd Sept
