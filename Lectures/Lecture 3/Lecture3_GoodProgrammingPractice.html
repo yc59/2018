@@ -21,9 +21,7 @@ class: center, middle, inverse, title-slide
 ---
 
 
-# Topics Covered*
-
-.footnote[**This lecture has been modified from material developed by Eric Rexstad*]
+# Topics Covered
 
 - The advantages of using **functions**
 
@@ -52,26 +50,41 @@ class: inverse, center, middle
 
 # Why use functions?
 
-1. Don't Repeat Yourself
+- Don't Repeat Yourself  
 
   - Avoid repeating the same code over and over
-  
---
-
-2. Functions Do One Thing
-  - Small chunks with defined inputs and outputs are easier to test 
 
 --
 
-3. Easier to update and propagate changes 
+- Functions Do One Thing
+  - Small chunks with defined inputs and outputs are easier to test
+
+--
+
+- Easier to update and propagate changes
   - Only have to change things once
 
 --
 
-4. Make code more organized and readable
+- Divide and conquer the problem
   - Each function is a step of the analysis
+  
+
+---
+
+# Why use functions?
+
+- Don't Repeat Yourself  
+
+- Functions Do One Thing
+
+- Easier to update and propagate changes
+
+- Divide and conquer the problem
+
 --
 
+- *Disadvantage: slight increase in overhead time*
 
 ---
 
@@ -88,6 +101,9 @@ class: inverse, center, middle
     - return outputs explicitly with `return()` function
     - no global side effects 🚫🌏
 
+--
+
+  - Whenever possible, functions should fit on one screen
     
 ---
 
@@ -168,19 +184,21 @@ eda &lt;- function (x) {
 
 ```r
 eda &lt;- function (x) {
-  # Function to generate descriptive plots of
-  # a numeric vector x
-  p &lt;- par(no.readonly = TRUE) # save existing graphical params
-  par(mfrow = c(1 ,3)) # setup 1x3 graphical device
-  hist(x, probability = TRUE) # plot 1
-  lines(density(x)) # add density
-  boxplot(x, horizontal = TRUE) # plot 2
-  rug(x) # add rug to boxplot
-  qqnorm(x) # plot 3
-  par(p) # reset graphical params
-  return(summary(x)) # return summary stats
-} # end eda
+  # Purpose: Exploratory data analysis function
+  # Input: numeric vector x
+  # Output: summary object and 1x3 plot
+  
+  # Setup 1x3 graphical device, but make sure
+  # it reverts to current settings on exit
+  old.par &lt;- par(no.readonly = TRUE) 
+  on.exit(par(old.par))
+  par(mfrow = c(1 ,3))
+  .
+  .
+  .
 ```
+--
+- Another option: send plot directly to PDF
 ---
 # What happens in `f(x)` stays in `f(x)`
 
@@ -242,7 +260,8 @@ ls()
 ## [7] "second"             "x"
 ```
 
-![](env.png)
+&lt;img src="env.png" width="500"&gt;
+
 
 ---
 
@@ -308,10 +327,6 @@ pi
 😱😱😱
 
 
-```r
-rm(pi)
-```
-
 ---
 
 # Functions vs. variables
@@ -345,11 +360,11 @@ rm(pi)
 
 # Dynamic lookup
 
-- Lookup happens when code or function is executed
+- Lookup happens when code is executed
 
 --
 
-- It does not matter what the value was when the code or function was created
+- It doesn't matter what the value was when the code was created
 
 
 ```r
@@ -363,6 +378,7 @@ f(x)
 ```
 ## [1] 16
 ```
+
 
 ```r
 x &lt;- 20
@@ -449,7 +465,7 @@ class: inverse, center, middle
 
 --
 
-  - Use meaningful variable names in a consistent style
+  - Use meaningful object names in a consistent style
 
 ---
 
