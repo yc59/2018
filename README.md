@@ -151,13 +151,18 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 + Date: 21 September 2018
 + Topic: Functions
 + Lecturer: Len Thomas
-+ Exercises: [HTML](https://github.com/MT4113/2018/blob/master/Practicals/Practical%201/prac01-functions-2018_Question.html)
++ Exercises: [HTML](http://htmlpreview.github.io/?https://github.com/MT4113/2018/blob/master/Practicals/Practical%201/prac01-functions-2018_Question.html)
++ Solutions: [HTML](http://htmlpreview.github.io/?https://github.com/MT4113/2018/blob/master/Practicals/Practical%201/prac01-functions-2018_Solution.html)
 
 ### Practical 2
 
 + Date: 28 September 2018
 + Topic: Testing and Debugging
-+ Lecturer: Len Thomas
++ Lecturer: Eiren Jacobson
++ Exercises: [HTML](http://htmlpreview.github.io/?https://github.com/MT4113/2018/blob/master/Practicals/Practical%202/prac02-debugging-2018.html), [RMD](https://github.com/MT4113/2018/blob/master/Practicals/Practical%202/prac02-debugging-2018.Rmd)
++ Additional Exercises: [PDF](https://github.com/MT4113/2018/blob/master/Practicals/Practical%202/ex4.pdf
+)
++ Resources: [Advanced R](http://adv-r.had.co.nz/Exceptions-Debugging.html), [RStudio Article](https://support.rstudio.com/hc/en-us/articles/205612627-Debugging-with-RStudio), [RStudio Video](https://vimeo.com/99375765)
 
 ### Practical 3
 
