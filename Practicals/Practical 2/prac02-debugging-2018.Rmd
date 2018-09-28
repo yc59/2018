@@ -3,10 +3,10 @@ title: "Practical 2 - Testing and Debugging"
 author: "MT4113"
 date: "28 September 2018"
 output:
+  pdf_document: default
   html_document:
     css: try-soln.css
     number_sections: yes
-  pdf_document: default
 ---
 ```{r, include=FALSE}
 help <- TRUE
