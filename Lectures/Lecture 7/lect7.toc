@@ -1,0 +1,9 @@
+\babel@toc {english}{}
+\beamer@sectionintoc {1}{Introduction and recap}{2}{0}{1}
+\beamer@sectionintoc {2}{Nonparametric bootstrap}{18}{0}{2}
+\beamer@subsectionintoc {2}{1}{How to generate resamples}{19}{0}{2}
+\beamer@subsectionintoc {2}{2}{Bootstrap confidence interval}{24}{0}{2}
+\beamer@subsectionintoc {2}{3}{Summary}{38}{0}{2}
+\beamer@sectionintoc {3}{Parametric bootstrap}{45}{0}{3}
+\beamer@subsectionintoc {3}{1}{How to generate resamples}{46}{0}{3}
+\beamer@subsectionintoc {3}{2}{Summary}{50}{0}{3}

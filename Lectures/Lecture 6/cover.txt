@@ -1,0 +1,6 @@
+This is stuff I covered in 2017, when I was doing more advanced bootstrap methods.  Not sure it's really necessary now...
+
+Make sure to cover inverting the test statistic for CIs -- will need that to explain why
+the boostrap percentile method doesn't really work.
+
+Show that when you have a symmetric distribution and use a pivotal quantity then you can use the estiamte +/- statistic kind of approach -- but that won't work when the above is not true -- e.g., for a Poisson

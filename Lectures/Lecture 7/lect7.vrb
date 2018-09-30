@@ -1,0 +1,16 @@
+\frametitle{Disadvantages}
+    \bi
+      \item Assumes observations/samples are iid
+	    \bi
+				\item \textit{probability integral transform} method when not identically distributed)
+				\item \textit{copulas} when samples are not independent
+			\ei
+			\item <2-> Performs poorly when underlying distribution is very skewed, or estimator is very biased.
+			\bi
+			  \item consider \textit{BCa (Bias corrected and accelerated) bootstrap} (see Carpinter and Bithell 2000, cited earlier).
+			\ei
+      \item <3-> Requires a reasonably large number of samples -- 20-30 or more\\
+        (but see \textit{smoothed bootstrap}  in background reading)
+      \item <4-> In complex examples, it can be difficult to see what the unit for resampling should be
+      \item <5-> Generally only asymptotically exact as $b$ and $n$ $\Rightarrow \infty$
+    \ei
