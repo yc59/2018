@@ -1,0 +1,14 @@
+\frametitle{Limitations}
+
+	\begin{itemize}
+    \item Given that the exponent and fraction are stored in a fixed number of bits, there are limitations both to the size and accuracy with which numbers can be stored
+    \item <2-> Size: in our example
+    \begin{itemize}
+        \item Largest possible number is
+				\item <3-> $+.1111_{\mbox{two}} \times 2^{3} = 7.5$
+        \item <4-> Smallest possible positive number\footnote
+        {if we allow the leading digits of the fraction to be zero (`de-normalized')}
+        is
+				\item <5-> $+.0001_{\mbox{two}} \times 2^{-3} = 1/128 = 0.0078125$
+    \end{itemize}
+	\end{itemize}

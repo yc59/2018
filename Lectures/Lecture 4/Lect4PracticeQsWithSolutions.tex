@@ -1,0 +1,41 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[colorlinks,
+pdfauthor="Len Thomas",
+pdftitle="MT4113 Lecture notes"]{hyperref}
+\usepackage[a4paper,margin=2cm,footskip=.5cm]{geometry}
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{epsf,graphics,graphicx,fancyhdr,color,amsmath,url,enumerate,alltt}
+
+\begin{document}
+
+\section*{MT4113 Lecture 4 Computer arithmetic\\Solutions to practice questions} 
+
+\begin{enumerate}
+    \item Write out -15-3=-18 in binary using an 8-bit signed integer system
+\begin{verbatim}  -15 10001111
+-  +3 00000011
+= -18 10010010
+\end{verbatim}		
+    \item What is the largest positive number that can be represented in this system?\\ \\
+\texttt{01111111 = 127}
+    \item Why is it very fast to multiply numbers represented as integers by 2?  What manipulation is required to the bits making up the number to achieve this operation?\\
+
+\texttt{The computer just needs to shift the bits to the left (apart from the sign bit and the most significant digit -- if the latter is already 1 then you get an overflow), and put a 0 in the least significant digit bit}
+
+    \item What is the machine epsilon on a 32-bit floating point system where 1 bit is for the sign, 16 bits for the exponent and 16 bits\footnote{using the same trick as in the IEEE standard to get one extra bit for free; note that this is not a very sensible allocation as it gives far too much of the space to the exponent} for the fraction?\\
+		
+\texttt{epsilon = $2^{(1-d)}=2^{(-15)}$}
+
+    \item In this system, what would be the result of computing $2* 2^{-17} + 1$?\\
+		
+\texttt{$2\times2^{-17} = 1\times2{^-16}$.  This is below the machine epsilon so the result would be 1.}
+
+    \item What do you get if you compute $512 * 0.25$ in the above floating point system, and then convert it into the above signed integer system?\footnote{A calculation like this once cost the EU space program about \$500 million: \href{https://www.ima.umn.edu/~arnold/disasters/ariane.html}{https://www.ima.umn.edu/$\sim$arnold/disasters/ariane.html}}\\
+		
+\texttt{$512 \times 0.25$ is easily evaluated exactly in the floating point system, giving 128.  This is larger than the largest integer, however, so you'd get an overflow}
+
+\end{enumerate}
+
+\end{document}
