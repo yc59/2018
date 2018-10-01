@@ -208,10 +208,12 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 
 ## Assignments <a name="assignments"></a>
 
-### Assignment 1
+### [Assignment 1](https://github.com/MT4113/2018/tree/master/Assignments/A1)
 
 + Instructions: [PDF](https://github.com/MT4113/2018/blob/master/Assignments/A1/MT4113A1-2018.pdf)    
 
-### Assignment 2
+### [Assignment 2](https://github.com/MT4113/2018/tree/master/Assignments/A2)
+
++ Instructions: [PDF](https://github.com/MT4113/2018/blob/master/Assignments/A2/MT4113A2-2018.pdf)
 
 ### Assignment 3
