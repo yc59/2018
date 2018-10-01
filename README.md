@@ -39,13 +39,12 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 + Materials: [Slides](https://github.com/MT4113/2018/blob/master/Lectures/Lecture%203/Lecture3_GoodProgrammingPractice.pdf)
 + Resources: [Google R Style Guide](https://google.github.io/styleguide/Rguide.xml), [Tidyverse R Style Guide](http://style.tidyverse.org/), [Advanced R](http://adv-r.had.co.nz/)
 
-### Lecture 4
+### [Lecture 4](https://github.com/MT4113/2018/tree/master/Lectures/Lecture%204)
 
 + Date: 1 October 2018
 + Topic: Computer Arithmetic
 + Lecturer: Len Thomas
-+ Slides:
-+ Readings:
++ Materials: [Slides](https://github.com/MT4113/2018/blob/master/Lectures/Lecture%204/lect4_slides.pdf), [Notes](https://github.com/MT4113/2018/blob/master/Lectures/Lecture%204/lect4_notes.pdf)
 
 ### Lecture 5
 
