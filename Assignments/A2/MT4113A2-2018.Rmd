@@ -144,6 +144,8 @@ The function `teamEM()` will return a named list containing the following:
 
 ## Task 6: Describe the work of each team member
 
+- Statement of original work
+
 - In one sentence per team member, describe who did what (e.g., A wrote function x, tested function y, documented function z).
 
 # What to hand in 
@@ -182,9 +184,9 @@ Fifty marks in total are available:
 
 All members of the team will receive the same mark.  
 
-Because this assignment counts towards your final grade, it is important that you do not collaborate with individuals outside your team in completing the work.   You should be comfortable with the following statement, which you should include as a comment at the beginning of the `teamEM()` file:
+Because this assignment counts towards your final grade, it is important that you do not collaborate with individuals outside your team in completing the work.   You should be comfortable with the following statement, which you should include in the work attribution section of your README file.
 
-`# I confirm that the attached is the work of our team, except where clearly indicated in the text.`
+`# I confirm that this repository is the work of our team, except where clearly indicated in the text.`
 
 Marks will be deducted if this statement is not present. 
 
