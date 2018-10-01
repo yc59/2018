@@ -45,6 +45,7 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 + Topic: Computer Arithmetic
 + Lecturer: Len Thomas
 + Materials: [Slides](https://github.com/MT4113/2018/blob/master/Lectures/Lecture%204/lect4_slides.pdf), [Notes](https://github.com/MT4113/2018/blob/master/Lectures/Lecture%204/lect4_notes.pdf)
++ Exercises: 
 
 ### Lecture 5
 
@@ -52,21 +53,21 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 + Topic: Feedback on Assignment 1 and Intro to Assignment 2
 + Lecturer: Len Thomas and Eiren Jacobson
 
-### Lecture 6
+### [Lecture 6](https://github.com/MT4113/2018/tree/master/Lectures/Lecture%206)
 
 + Date: 10 October 2018
 + Topic: Randomization
 + Lecturer: Len Thomas
-+ Slides:
-+ Readings:
++ Materials: [Slides](https://github.com/MT4113/2018/blob/master/Lectures/Lecture%206/lect6_slides.pdf), [Notes](https://github.com/MT4113/2018/blob/master/Lectures/Lecture%206/lect6_notes.pdf)
++ Resources: [Background Reading](https://github.com/MT4113/2018/blob/master/Lectures/Lecture%206/BackgroundReading/MT4113_ComputerIntensiveStats_BackgroundReading.pdf)
 
-### Lecture 7
+### [Lecture 7](https://github.com/MT4113/2018/tree/master/Lectures/Lecture%207)
 
 + Date: 15 October 2018
 + Topic: Bootstrap
 + Lecturer: Len Thomas
-+ Slides:
-+ Readings:
++ Materials: [Slides](https://github.com/MT4113/2018/blob/master/Lectures/Lecture%207/lect7_slides.pdf), [Notes](https://github.com/MT4113/2018/blob/master/Lectures/Lecture%207/lect7_notes.pdf)
++ Resources: [Background Reading](https://github.com/MT4113/2018/blob/master/Lectures/Lecture%206/BackgroundReading/MT4113_ComputerIntensiveStats_BackgroundReading.pdf)
 
 ### Lecture 8
 
@@ -96,7 +97,7 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 
 + Date: 5 November 2018
 + Topic: Optimization III
-+ Lecturer:
++ Lecturer: Eiren Jacobson
 + Slides:
 + Readings:
 
