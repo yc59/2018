@@ -1,0 +1,6 @@
+\frametitle{Cons, compared with permutation methods}
+	\bi
+		\item For parametric simulations, need to estimate nuisance parameters (e.g., $\sigma^2$ in the pine martin example)
+		\item <2->Results will vary from run to run
+	\ei
+<3-> Confidence intervals can be constructed using similar methods to randomization intervals -- but there's a better way -- see next lecture...

@@ -1,0 +1,225 @@
+%PDF-1.4
+%Å‚Å„ÅœÅ”
+1 0 obj
+<<
+/CreationDate (D:20060313234359)
+/ModDate (D:20060313234359)
+/Title (R Graphics Output)
+/Producer (R 2.2.1)
+/Creator (R)
+>>
+endobj
+2 0 obj
+<<
+/Type /Catalog
+/Pages 3 0 R
+>>
+endobj
+5 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F1
+/BaseFont /ZapfDingbats
+>>
+endobj
+6 0 obj
+<<
+/Type /Page
+/Parent 3 0 R
+/Contents 7 0 R
+/Resources 4 0 R
+>>
+endobj
+7 0 obj
+<<
+/Length 8 0 R
+>>
+stream
+q
+Q q 0.00 0.00 516.00 516.00 re W n
+Q q 0.00 0.00 516.00 516.00 re W n
+BT
+/GS257 gs
+0.000 0.000 0.000 rg
+/F3 1 Tf 15.00 0.00 0.00 15.00 154.57 481.09 Tm (Parametric bootstrap, normal pdf) Tj
+/F2 1 Tf 15.00 0.00 0.00 15.00 236.96 18.72 Tm (mean.boot) Tj
+/F2 1 Tf 0.00 15.00 -15.00 0.00 12.96 240.19 Tm (Density) Tj
+ET
+Q q 0.00 0.00 516.00 516.00 re W n
+/GS1 gs
+0.000 0.000 0.000 RG
+0.75 w
+[] 0 d
+1 J
+1 j
+10.00 M
+91.31 73.44 m 420.57 73.44 l S
+91.31 73.44 m 91.31 66.24 l S
+173.62 73.44 m 173.62 66.24 l S
+255.94 73.44 m 255.94 66.24 l S
+338.25 73.44 m 338.25 66.24 l S
+420.57 73.44 m 420.57 66.24 l S
+BT
+/GS257 gs
+0.000 0.000 0.000 rg
+/F2 1 Tf 15.00 0.00 0.00 15.00 72.33 47.52 Tm (-0.05) Tj
+/F2 1 Tf 15.00 0.00 0.00 15.00 159.03 47.52 Tm (0.00) Tj
+/F2 1 Tf 15.00 0.00 0.00 15.00 241.34 47.52 Tm (0.05) Tj
+/F2 1 Tf 15.00 0.00 0.00 15.00 323.66 47.52 Tm (0.10) Tj
+/F2 1 Tf 15.00 0.00 0.00 15.00 405.97 47.52 Tm (0.15) Tj
+ET
+59.04 87.64 m 59.04 401.90 l S
+59.04 87.64 m 51.84 87.64 l S
+59.04 150.50 m 51.84 150.50 l S
+59.04 213.35 m 51.84 213.35 l S
+59.04 276.20 m 51.84 276.20 l S
+59.04 339.05 m 51.84 339.05 l S
+59.04 401.90 m 51.84 401.90 l S
+BT
+/F2 1 Tf 0.00 15.00 -15.00 0.00 41.76 83.47 Tm (0) Tj
+/F2 1 Tf 0.00 15.00 -15.00 0.00 41.76 146.33 Tm (2) Tj
+/F2 1 Tf 0.00 15.00 -15.00 0.00 41.76 209.18 Tm (4) Tj
+/F2 1 Tf 0.00 15.00 -15.00 0.00 41.76 272.03 Tm (6) Tj
+/F2 1 Tf 0.00 15.00 -15.00 0.00 41.76 334.88 Tm (8) Tj
+/F2 1 Tf 0.00 15.00 -15.00 0.00 41.76 393.56 Tm (10) Tj
+ET
+Q q 0.00 0.00 516.00 516.00 re W n
+/GS1 gs
+0.000 0.000 0.000 RG
+0.75 w
+[] 0 d
+1 J
+1 j
+10.00 M
+74.84 87.64 32.93 3.14 re S
+107.77 87.64 32.93 7.86 re S
+140.70 87.64 32.93 33.00 re S
+173.62 87.64 32.93 62.85 re S
+206.55 87.64 32.93 160.27 re S
+239.47 87.64 32.93 274.98 re S
+272.40 87.64 32.93 355.11 re S
+305.33 87.64 32.93 336.26 re S
+338.25 87.64 32.93 190.13 re S
+371.18 87.64 32.93 106.85 re S
+404.10 87.64 32.93 37.71 re S
+437.03 87.64 32.93 3.14 re S
+0.75 w
+[ 3.00 5.00] 0 d
+169.80 0.00 m 169.80 516.00 l S
+405.52 0.00 m 405.52 516.00 l S
+Q
+endstream
+endobj
+8 0 obj
+2026
+endobj
+3 0 obj
+<<
+/Type /Pages
+/Kids [
+6 0 R
+]
+/Count 1
+/MediaBox [0 0 515 515]
+>>
+endobj
+4 0 obj
+<<
+/ProcSet [/PDF /Text]
+/Font << /F1 5 0 R /F2 10 0 R /F3 11 0 R /F4 12 0 R /F5 13 0 R /F6 14 0 R >>
+/ExtGState << /GS1 15 0 R /GS257 16 0 R >>
+>>
+endobj
+9 0 obj
+<<
+/Type /Encoding
+/BaseEncoding /WinAnsiEncoding
+/Differences [ 45/minus 96/quoteleft
+144/dotlessi /grave /acute /circumflex /tilde /macron /breve /dotaccent
+/dieresis /.notdef /ring /cedilla /.notdef /hungarumlaut /ogonek /caron /space]
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F2
+/BaseFont /Helvetica
+/Encoding 9 0 R
+>>
+endobj
+11 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F3
+/BaseFont /Helvetica-Bold
+/Encoding 9 0 R
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F4
+/BaseFont /Helvetica-Oblique
+/Encoding 9 0 R
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F5
+/BaseFont /Helvetica-BoldOblique
+/Encoding 9 0 R
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F6
+/BaseFont /Symbol
+>>
+endobj
+15 0 obj
+<<
+/Type /ExtGState
+/CA 1.000 >>
+endobj
+16 0 obj
+<<
+/Type /ExtGState
+/ca 1.000
+>>
+endobj
+xref
+0 17
+0000000000 65535 f 
+0000000020 00000 n 
+0000000162 00000 n 
+0000002473 00000 n 
+0000002556 00000 n 
+0000000211 00000 n 
+0000000294 00000 n 
+0000000374 00000 n 
+0000002453 00000 n 
+0000002719 00000 n 
+0000002976 00000 n 
+0000003073 00000 n 
+0000003175 00000 n 
+0000003280 00000 n 
+0000003389 00000 n 
+0000003467 00000 n 
+0000003516 00000 n 
+trailer
+<<
+/Size 17
+/Info 1 0 R
+/Root 2 0 R
+>>
+startxref
+3565
+%%EOF

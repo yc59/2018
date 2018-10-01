@@ -1,0 +1,645 @@
+%Comment out lines 3-4 if you want slides, line 2 if you want notes
+%\documentclass[ignorenonframetext, red]{beamer}
+\documentclass[11pt,a4paper]{article}
+\usepackage{beamerarticle}
+\mode<article>
+{
+	\usepackage[colorlinks,
+	pdfauthor="Len Thomas",
+	pdftitle="MT4113 Lecture notes"]{hyperref}
+    \usepackage[a4paper,margin=1cm,footskip=.5cm]{geometry}
+}
+\mode<presentation>
+{
+%    \usetheme{Singapore}
+  \pgfdeclareimage[height=1cm]{StA-logo}{logo}
+  \logo{\pgfuseimage{StA-logo}}
+    \usetheme{EastLansing}
+%    \usetheme{JuanLesPins}
+%    	\usecolortheme{sidebartab}
+	\setbeamertemplate{navigation symbols}{\insertsectionnavigationsymbol}
+}
+
+\usepackage[english]{babel}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{epsf,graphics,graphicx,fancyhdr,color,amsmath,url,enumerate,alltt}
+\usepackage{ifthen}
+
+
+%Commented out proportional font -- use a monospaced font instead
+% -- better for displaying the tables with binary numbers in them, etc, in this lecture
+%\usepackage[sfdefault]{cabin}
+\usepackage[scaled=0.85]{beramono}
+
+
+\newcommand{\bc}{\begin{center}}
+\newcommand{\ec}{\end{center}}
+\newcommand{\bn}{\begin{enumerate}}
+\newcommand{\en}{\end{enumerate}}
+\newcommand{\be}{\begin{eqnarray}}
+\newcommand{\ee}{\end{eqnarray}}
+\newcommand{\bes}{\begin{eqnarray*}}
+\newcommand{\ees}{\end{eqnarray*}}
+
+\title[MT4113]{MT 4113, Computing in Statistics}
+
+\subtitle{Lecture 4 - An introduction to computer arithmetic}
+
+\author[Lecture 4]{Len Thomas}
+
+%\institute{School of Mathematics and Statistics, University of St Andrews}
+
+\date[1/10/2018] {Oct 1 2018}
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\mode<article>{
+\maketitle
+}
+
+\mode<presentation> {
+\begin{frame}
+  \frametitle{Outline}
+	\tableofcontents
+\end{frame}
+}
+
+%-----------------------------------------------------------------
+
+\section{An Introduction to Computer Arithmetic}
+
+\subsection{Introduction}
+
+\begin{frame}
+	\frametitle{About this lecture}
+
+This is a rough guide to how computers store and manipulate numbers\footnote{A much more
+in-depth treatment is in, e.g., Chapter 2 of Gentle, J.E. Computational Statistics, available from the library as an electronic book.}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Motivating example using \texttt{R}}
+
+What does this code do?
+
+\begin{verbatim}
+x <- 0.1
+x <- x + 0.05
+x
+
+if (x == 0.15) {
+  cat("Len is a great guy!\n") 
+} else {
+  cat("Len is a loser!\n")
+}
+\end{verbatim}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Numbers on computers}
+
+	\begin{itemize}
+		\item Computers really can't do arithmetic.  They recognize two states: on (1) and off (0).  Numbers on computers are really a collection of binary digits (`bits') -- they only have meaning by human convention.
+		
+		\item Numbers are represented on computers in two ways:
+		\begin{itemize}
+      \item fixed point (integers)
+	    \item floating point (reals)
+		\end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+	\frametitle{Definitions: Data size}
+
+\begin{itemize}
+    \item bit: short for \underline{bi}nary digi\underline{t}
+      \\smallest unit of storage on a machine -- holds either 0 or 1
+    \item byte: short for \underline{by}nary \underline{te}rm \footnote{Computer scientists can't spell!}
+      \\8 bits -- enough to hold a single character of text (see later)
+    \item word: natural data size of a computer.  Depends on the CPU -- for most desktop systems currently it is 64 bits (or 32 bits for older machines).
+    \item kilobyte (K): $2^{10}=1,024$ bytes
+    \item megabyte (MB): $2^{20}=1,048,576$ bytes$ = 1,024$ K
+    \item gigabyte (GB): $2^{30}=1,073,741,824$ bytes$\footnote{Hard disk drive manufacturers sometimes prefer to use $1,000,000,000$ bytes as it makes their drives look bigger.} = 1,024$ MB
+\end{itemize}
+
+\end{frame}
+
+\subsection{Fixed point}[fragile]
+
+\begin{frame}
+	\frametitle{Fixed point representations}
+
+	\begin{itemize}
+	    \item Example representation: signed integer\footnote{there are other more efficient representations, e.g., 1s complement and 2s complement}
+	    \begin{itemize}
+	        \item 1st bit is the sign (0=+ve, 1=-ve)
+	        \item Remaining bits are the absolute value in base 2
+	    \end{itemize}
+	    \item <2-> E.g., on a 4-bit system:
+	    \bc
+	    \begin{tabular}{ll}
+	        0000 is 0 & 1000 is -0 \\
+	        0001 is 1 & 1001 is -1 \\
+	        0010 is 2 & 1010 is -2 \\
+	        0011 is 3 & 1011 is -3 \\
+	        $\vdots$  & $\vdots$\\
+	        0111 is 7 & 1111 is -7
+	    \end{tabular}
+	    \ec
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Fixed point arithmetic - addition}
+
+	\begin{itemize}
+	    \item E.g. addition:
+	    \bc
+	    \begin{tabular}{rrl}
+	        3  & 0011 &\\
+	        +2 & 0010 &\\
+	        \cline{1-2}
+	        5  & 0101 & add
+	    \end{tabular}
+	    \ec
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Fixed point arithmetic - multiplication}
+
+	\begin{itemize}
+	    \item Multiply by a power of 2 - just shift the bits left and fill in rightmost bits with zeros
+	    \bc
+	    \begin{tabular}{rrl}
+	        3  & 0011 &\\
+	        x2 & 0010 &\\
+	        \cline{1-2}
+	        6  & 0110 & x2 $\Rightarrow$ shift left one
+	    \end{tabular}
+	    \ec
+	    \item <2-> If not a power of 2, use the `shift and add' algorithm: express as a sum of powers of 2.\\
+			E.g., $2\times3 = (2\times2) + (2\times1)$
+	    \item <3-> \bc
+	    \begin{tabular}{rrl}
+	        2  & 0010 &\\
+	        x3 & 0011 &\\
+	        \cline{1-2}
+					4 & 0100 & x2 $\Rightarrow$ shift left one\\
+					2 & 0010 & x1 $\Rightarrow$ shift left none\\
+	        \cline{1-2}
+	        6  & 0110 & add
+	    \end{tabular}
+	    \ec
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame} [fragile]
+	\frametitle{Fixed point arithmetic - subtraction and division}
+
+	\begin{itemize}
+			\item <1-> Dividing by a power of two is easy 
+			\begin{itemize}
+				\item <2->just shift right (and drop any fractional part)
+			\end{itemize}
+	    \item <3-> Otherwise, dividing and subtracting are not very intuitive (or fast) in the signed integer representation, so we do not cover them explicitly here
+			\item <3-> They are better (easier) in other representations -- e.g., 1s or 2s complement
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Fixed point overflow}
+
+    \bc
+    \begin{tabular}{rr}
+        3  & 0011\\
+        +5 & 0101\\
+        \cline{1-2}
+        0  & 0000
+    \end{tabular}
+    \ec
+\begin{itemize}
+    \item <2->Machine needs a protocol to deal with and warn user of fixed point overflow
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Fixed point numbers in R}
+
+\begin{itemize}
+    \item <1->In R, the fixed point data type is called \texttt{integer}.
+		\item <2->Integers aren't actually used much in R, except in loops and indexing elements in arrays.
+		\item <3->Integers in R are stored in 32 bits.
+\begin{semiverbatim}\mode<presentation>{\tiny}{}
+> as.integer(2 ^ 31 - 1)
+[1] 2147483647
+> as.integer(2 ^ 31 - 1) + as.integer(1)
+[1] NA
+Warning message:
+In as.integer(2 ^ 31 - 1) + as.integer(1) : NAs produced by integer overflow\end{semiverbatim}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Summary: Fixed point representations}
+
+	 \begin{itemize}
+	    \item Advantages:
+	    \begin{itemize}
+	        \item Results are exact
+	        \item Fast (compared with floating point)
+	    \end{itemize}
+	    \item <2-> Disadvantages:
+	    \begin{itemize}
+	        \item Limited applicability: integers and related (e.g., financial applications, dates\footnote{Dates can use unsigned integers representations})
+	        \item Limited range
+	    \end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\subsection{Floating point}
+
+\begin{frame}
+	\frametitle{Floating point representations}
+
+	\begin{itemize}
+	    \item Example $S .F \times B^E$ e.g., $+.1 \times 10^{+1}$
+	    \begin{itemize}
+	        \item S = sign
+	        \item F = fraction -- unsigned integer.  Typically `normalized' so that 1st digit is non-zero.
+	        \item B = base
+	        \item E = exponent -- signed integer.
+	    \end{itemize}
+	    \item On a computer
+	    \begin{itemize}
+	        \item B is 2
+	        \item S is 1 bit (0=+, 1=-)
+	        \item F and E are allocated a fixed number of bits each
+	    \end{itemize}
+	\end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+	\mode<presentation>{\frametitle{Floating point representations}}
+	\begin{itemize}
+	    \item For example, consider an 8-bit floating point representation
+	    with
+	    \begin{itemize}
+	        \item 1 bit for the sign
+	        \item 3 for the exponent (a signed integer)
+	        \item 4 for the fraction (an unsigned integer)
+	    \end{itemize}
+	\end{itemize}
+	    \bc
+	    {\tiny
+	    \begin{tabular}{rcrcrcrrr}
+	        & & \multicolumn{1}{c}{decimal} &   & \multicolumn{1}{c}{binary} & &
+	            \multicolumn{1}{c}{sign} & \multicolumn{1}{c}{exponent} &
+	            \multicolumn{1}{c}{fraction}\\
+	        1 & = & $+.1 \times 10^{+1}$ & = & $+.1_{\mbox{two}} \times 2^{+1}$ & = &
+	            0 & 001 & 1000\\
+	        3 & = & $+.3 \times 10^{+1}$ & = & $+.11_{\mbox{two}} \times 2^{+2}$ & = &
+	            0 & 010 & 1100\\
+	    $-1/8$ & = & $-.125 \times 10^{+0}$ & = & $-.1_{\mbox{two}} \times 2^{-2}$ & = &
+	            1 & 110 & 1000\\
+	    \end{tabular}
+	    }
+	    \ec
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Limitations}
+
+	\begin{itemize}
+    \item Given that the exponent and fraction are stored in a fixed number of bits, there are limitations both to the size and accuracy with which numbers can be stored
+    \item <2-> Size: in our example
+    \begin{itemize}
+        \item Largest possible number is 
+				\item <3-> $+.1111_{\mbox{two}} \times 2^{3} = 7.5$
+        \item <4-> Smallest possible positive number\footnote
+        {if we allow the leading digits of the fraction to be zero (`de-normalized')}
+        is 
+				\item <5-> $+.0001_{\mbox{two}} \times 2^{-3} = 1/128 = 0.0078125$
+    \end{itemize}
+	\end{itemize}
+\end{frame}
+\begin{frame}
+	\mode<presentation>{\frametitle{Limitations}}
+	\begin{itemize}
+    \item Accuracy:
+    \bc
+    \begin{tabular}{rrrrr}
+        & \multicolumn{1}{c}{binary} &
+            \multicolumn{1}{c}{sign} & \multicolumn{1}{c}{exponent} &
+            \multicolumn{1}{c}{fraction}\\
+        1 & $.1000_{\mbox{two}} \times 2^{+1}$ &
+            0 & 001 & 1000\\
+        +1/128 & $+.0001_{\mbox{two}} \times 2^{-3}$ &
+            0 & 111 & 0001\\
+        \hline
+        1 & $.1000_{\mbox{two}} \times 2^{+1}$ &
+            0 & 001 & 1000
+    \end{tabular}
+    \ec
+    \begin{itemize}
+        \item to see why, re-express 1/128 as
+		    \bc
+		    \begin{tabular}{rrrrr}
+		        +1/128 & $+.00000001_{\mbox{two}} \times 2^{+1}$ &
+		            0 & 001 & 00000001\\
+		    \end{tabular}
+		    \ec
+    \end{itemize}
+	\end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+	\mode<presentation>{\frametitle{Limitations}}
+	\begin{itemize}
+    \item Let $\epsilon$ be the smallest positive number, such that $\epsilon + 1.0 \neq 1.0$
+    \item In our example
+    \begin{itemize}
+			\item <2-> $\epsilon = 1/8$:
+    \bc
+%    \ifthenelse{\talk = 1}{\small}{}
+    \begin{tabular}{rrrrr}
+        & \multicolumn{1}{c}{binary} &
+            \multicolumn{1}{c}{sign} & \multicolumn{1}{c}{exponent} &
+            \multicolumn{1}{c}{fraction}\\
+        1 & $.1000_{\mbox{two}} \times 2^{+1}$ &
+            0 & 001 & 1000\\
+        +1/8 & $+.1000_{\mbox{two}} \times 2^{-2}$ &
+            0 & 110 & 1000\\
+        \hline
+        1 1/8 & $.1001_{\mbox{two}} \times 2^{+1}$ &
+            0 & 001 & 1001
+    \end{tabular}
+    \ec
+        \item <2-> to see why, re-express 1/8 as
+		    \bc
+		    \begin{tabular}{rrrrr}
+		        +1/8 & $+.0001_{\mbox{two}} \times 2^{+1}$ &
+		            0 & 001 & 0001\\
+		    \end{tabular}
+		    \ec
+    \end{itemize}
+    \item <3->In general, $\epsilon$, the  `machine epsilon' (or closely related `machine unit'), governs the relative accuracy of calculations (see later for an example).   $\epsilon = 2^{(1-d)}$ where $d$ is the number of bits in the fraction.
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Some consequences of lack of accuracy}
+
+		For clarity, the examples here use a base 10 representation with 4 decimal places in the fraction.
+	
+	\begin{itemize}
+	    \item <2-> Things rarely add up exactly, due to rounding errors.
+	\bes
+	    1/3+1/3+1/3 &=& 1 \\
+	    .3333 +.3333 + .3333 &=& .9999
+	\ees
+	    \item <3->Order of summation matters (associative rule doesn't work).  E.g.:
+	\bes
+	        1.000 + .0001 + \{\mbox{9,998 more .0001s}\} + .0001 = 1.000\\
+	        .0001 + \{\mbox{9,998 more .0001s}\} + .0001 + 1.000 = 2.000
+	\ees
+	    \item <4->When adding $n$ values to $x$, the maximum error $<\frac{n  \epsilon x}{2}$.
+	\end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+	\mode<presentation>{\frametitle{Some consequences of lack of accuracy}}
+	\begin{itemize}
+	
+	    \item Mixed signs can cause problems -- `catastrophic cancellation': subtraction of two nearly equal numbers eliminates the most significant digits, and any small rounding errors that were previously hidden end up becoming important.
+	    \begin{itemize}
+	        \item <2->Poor example: $.1000 \times 10^0 - .9999 \times 10^{-1} = .1000 \times 10^{-3}$ instead of $.1000 \times 10^{-4}$ -- so the answer is wrong in what is now the most significant digit.
+	        \item <3->Better example: calculating the sample variance using the usual $s^2=\frac{\sum{\left(x^2\right)}}{n} - \left(\frac{\sum{x}}{n}\right)^2$ -- can get -ve estimates!  If you want to see, try it for the sample $\{356, 357, 358, 359, 360\}$ keeping 4 decimal places in the fraction.
+	
+	    \end{itemize}
+	\end{itemize}
+
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Floating point numbers in R}
+
+	\begin{itemize}
+    \item <1->In R, the floating point data type is called \texttt{numeric}.
+		\item <2->It is the default for numbers in R.
+\begin{semiverbatim}\mode<presentation>{\footnotesize}
+> x <- 3
+> class(x)
+[1] "numeric"
+\end{semiverbatim}
+    \item <3->\texttt{numeric} values are represented using an IEEE standard for double precision.  64 bits in total, 1 bit for the sign, 11 bits for the exponent, 53 for the the fraction (uses a trick to gain 1 extra bit).
+	\end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+	\mode<presentation>{\frametitle{Floating point numbers in R}}
+	\begin{itemize}
+    \item So,
+    \begin{itemize}
+        \item <2-> the largest possible number is\footnote{it is slightly higher, due to some tricks}
+         $+.1111\ldots_{\mbox{two}} \times 2^{+1023} = 8.98\times 10^{+307}$
+\begin{semiverbatim}
+> 1 * 2 ^ 1023
+[1] 8.988466e+307
+> 2 * 2 ^ 1023
+[1] Inf\end{semiverbatim}
+        \item <3-> accuracy: machine epsilon is\footnote{again, it's slightly lower, due to some tricks} $\epsilon = 2^{(1-53)} = 2.20\times 10^{-16}$
+\begin{semiverbatim}
+> 1 + 2 ^ (1 - 53) == 1
+[1] FALSE
+> 1 + (0.5 * 2 ^ (1 - 53)) == 1
+[1] TRUE\end{semiverbatim}
+    \end{itemize}
+	\end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+	\mode<presentation>{\frametitle{Floating point numbers in R}}
+  \begin{itemize}
+    \item <1->The standard dictates how some arithmetic operations should be done, and defines special values +Inf and -Inf (for overflows), and NaN (not a number).
+\begin{semiverbatim}\mode<presentation>{\footnotesize}
+> 1 / 0
+[1] Inf
+> 0 / 0
+[1] NaN
+> sqrt(-1)
+[1] NaN
+Warning message:
+In sqrt(-1) : NaNs produced
+> Inf / Inf
+[1] NaN
+\end{semiverbatim}
+    \item <2->Underflows are set to 0, and no warning is generated.
+\begin{semiverbatim}\mode<presentation>{\footnotesize}
+> exp(-1000)
+[1] 0
+\end{semiverbatim}
+
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}[fragile]
+	\frametitle{Living with floating point limitations}
+
+	\begin{itemize}
+	  \item Re-work expressions and algorithms to
+    \begin{itemize}
+      \item<2-> Avoid generating very large numbers that might overflow.  Underflow is generally better than overflow.  E.g. Rewrite $\frac{e^x}{1+e^x}$ as $\frac{1}{1+e^{-x}}$
+	\begin{semiverbatim}\mode<presentation>{\footnotesize}
+	> x <- 1000
+	> exp(x) / (1 + exp(x))
+	[1] NaN
+	> 1 / (1 + exp(-x))
+	[1] 1\end{semiverbatim}
+	   \item <3->Minimize large differences in scale in intermediate calculations, so as to preserve accuracy.  For example, instead of taking the product of a large number of likelihoods, take the sum of the log likelihoods and then exponentiate.
+	 \end{itemize}
+  \end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+	\mode<presentation>{\frametitle{Living with floating point limitations}}
+  \begin{itemize}	
+     \item Normalize\footnote{Note: different meaning here from normalizing the fractional part of a floating point number} -- scale values so they are centred near 0, and perhaps divide by some suitably large value so they don't overflow.  Allows the maximum range of values.
+	    \item <2->Change exact tests to `good enough` tests.  From\\
+	\texttt{if(x == y) then...}\\
+	to\\
+	\texttt{if(((x - e) <= y) \& (x + e >= y)) then ...}\\
+	or, better (scale independent)\\
+	\texttt{if(abs(x - y) <= abs(y) * e) then ...}
+
+  \end{itemize}
+\end{frame}
+\begin{frame}[fragile]
+	\mode<presentation>{\frametitle{Living with floating point limitations}}
+  \begin{itemize}	
+
+	    \item Be careful about the order of operations - e.g., consider sorting numbers before adding (there are even smarter tricks here).
+	
+	    \item <2-> If you're desperate, use double-precision (at least for intermediate calculations) -- but it uses twice the memory and can use 3-4 times the time. (Although this does depend on the size of the floats relative to computer word size, so best to try it and see.)\footnote{Doesn't apply to R, which always uses double precision.  If you want even more accuracy, you can use the \texttt{Rmpfr} package.}
+	\end{itemize}
+
+\end{frame}
+\begin{frame}[fragile]
+	\mode<presentation>{\frametitle{Living with floating point limitations}}
+	
+	Some comments:
+	\begin{itemize}
+	    \item Note that many of these show a trade-off between accuracy and speed.
+	    \item <2->So, first ask yourself if it's going to be a problem, before spending lots of time fixing a problem that isn't important!
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Summary: floating point representations}
+
+	\begin{itemize}
+	    \item Advantages:
+	    \begin{itemize}
+	        \item Wide applicability (all numbers on the real line)
+	        \item Wider range than fixed point
+	    \end{itemize}
+	    \item <2->Disadvantages:
+	    \begin{itemize}
+	        \item Results are not exact -- need to be careful
+	        \item Slow (compared with fixed point)
+	    \end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+	\frametitle{Motivating example \texttt{R}edux}
+
+What should we do instead of this?
+
+\begin{verbatim} 
+if (x == 0.15) {
+  cat("Len is a great guy!\n") 
+} else {
+  cat("Len is a loser!\n")
+}
+\end{verbatim}
+\end{frame}
+
+\mode<presentation>
+%This frame not shown in the handout!
+\begin{frame}[fragile]
+  \frametitle{Motivating example \texttt{R}edux}
+
+Good enough test, such as:
+
+\begin{verbatim} 
+e <- 1E-15
+if (abs(x - 0.15) < 0.15 * e) {
+  cat("Len is a great guy!\n") 
+} else {
+  cat("Len is a loser!\n")
+}
+\end{verbatim}
+\end{frame}
+
+\mode*
+%Back to showing things in the handout
+\subsection{Character storage}
+
+\begin{frame}[label=current]
+	\frametitle{Character storage\footnote{OK - I know characters aren't numbers but I thought I'd include this stuff anyway}}
+
+	\begin{itemize}
+	    \item Characters are stored as binary numbers on the computer.  The correspondence between the stored numbers and the displayed symbols is determined by a character set.
+	\end{itemize}
+\end{frame}
+\begin{frame}[label=current]
+	\mode<presentation>{\frametitle{Character storage}}
+	\begin{itemize}
+	    \item Example character sets:
+	    \begin{itemize}
+	        \item ASCII (American Standard Code for Information Exchange).  A 7-bit system, so there are 128 unique characters.  0-31 are non-printing control characters (e.g. 27 is ESCape), the other 96 are alphanumeric characters and symbols (e.g. 63 is ?, 77 is M).
+	        \item Extended ASCII. A set of 8-bit systems - the extra 128 characters are used for European accents, etc.  There are many regional variants.  Used in old versions of windows, and (I think) in R.
+	        \item UNICODE.  A 16-bit system, so there are 65,536 characters.  Designed to include extended-character languages like Chinese and Japanese - but not really sufficient for that.  Used in MS Windows (2000 and later).
+	    \end{itemize}
+	\end{itemize}
+\end{frame}
+\begin{frame}[label=current]
+	\mode<presentation>{\frametitle{Character storage}}
+	\begin{itemize}
+	    \item Practical note: there can be hassles switching between operating systems or locales within operating systems. E.g., Unix (LF) to Windows (CR+LF).
+	\end{itemize}
+\end{frame}
+
+\subsection*{Practice questions}
+
+\begin{frame}[fragile,label=current]
+	\mode<presentation>{\frametitle{Practice questions}}
+	\mode<presentation>{\footnotesize}
+\bn
+    \item Write out -15-3=-18 in binary using an 8-bit signed integer system
+%  -15 10001111
+%-  +3 00000011
+%= -18 10010010		
+    \item What is the largest positive number that can be represented in this system?
+%01111111 = 127
+    \item Why is it very fast to multiply numbers represented as integers by 2?  What manipulation is required to the bits making up the number to achieve this operation?
+%Just need to shift the bits to the left (apart from the sign bit and the most significant digit -- if the latter is already 1 then you get an overflow), and put a 0 in the least significant digit bit
+    \item What is the machine epsilon on a 32-bit floating point system where 1 bit is for the sign, 16 bits for the exponent and 16 bits\footnote{using the same trick as in the IEEE standard to get one extra bit for free; note that this is not a very sensible allocation as it gives far too much of the space to the exponent} for the fraction?
+% epsilon = 2^(1-d)=2^(-15)
+    \item In this system, what would be the result of computing $2* 2^{-17} + 1$?
+%2x2^-17 = 1x2^-16 -- below the machine epsilon so the result would be 1
+    \item What do you get if you compute $512 * 0.25$ in the above floating point system, and then convert it into the above signed integer system?\footnote{A calculation like this once cost the EU space program about \$500 million: \href{https://www.ima.umn.edu/~arnold/disasters/ariane.html}{https://www.ima.umn.edu/$\sim$arnold/disasters/ariane.html}}
+%512*0.25 is easily evaluated exactly in the floating point system, giving 128.  This is larger than the largest integer, however, so you'd get an overflow
+ \en
+\end{frame}
+
+\end{document}
