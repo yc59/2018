@@ -51,7 +51,6 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 + Date: 3 October 2018
 + Topic: Feedback on Assignment 1 and Intro to Assignment 2
 + Lecturer: Len Thomas and Eiren Jacobson
-+ Readings:
 
 ### Lecture 6
 
@@ -168,6 +167,7 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 + Date: 
 + Topic:
 + Lecturer:
++ Resources: [Happy Git with R](http://happygitwithr.com/)
 
 ### Practical 4
 
