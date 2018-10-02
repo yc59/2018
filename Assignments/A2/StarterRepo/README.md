@@ -26,19 +26,34 @@
 
 ## Task 3: Algorithm implementation
 
+- Create modular code consisting of a set of documented and tested functions implementing this algorithm. Include links to these functions in the README file:
+
 - [Code for implementing the EM algorithm](https://github.com/MT4113/2018/blob/master/Assignments/A2/StarterRepo/Scripts/teamEM.R)
 
+- [Maybe you also have subroutine functions to e.g., calculate the likelihood](https://github.com/MT4113/2018/blob/master/Assignments/A2/StarterRepo/Scripts/calcLikelihood.R)
 
 ## Task 4: Function testing
 
+- Write a function to create simulated datasets with similar properties to the "true" data.  Include a link to this function in the README file.
+
+- Show that the algorithm returns correct values for simulated datasets.  How you do this is up to your team.
+
 ## Task 5: Results reporting
 
-| Syntax      | Description |
-| ----------- | ----------- |
-| Header      | Title       |
-| Paragraph   | Text        |
+- Include a table of the estimates returned by `teamEM()` 
+
+| Parameter | mu | sigma | lambda |
+|-----------|----|-------|--------|
+| Age 1     | #  | #     | #      |
+| Age 2     | #  | #     | #      |
+| Age 3     | #  | #     | #      |
+
+- Plot the original data with the densities of the mixture components superimposed.  Include your figure in the README file.
 
 ## Task 6: Work attribution
 
+- Statement of original work
+
+- In one sentence per team member, describe who did what (e.g., A wrote function x, tested function y, documented function z).
 
 
