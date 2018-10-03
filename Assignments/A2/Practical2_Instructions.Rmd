@@ -1,0 +1,107 @@
+---
+title: "MT4113 Intro to Assignment 2"
+subtitle: "Fish Lengths as Mixture Distributions"
+author: "Eiren Jacobson"
+date: "3 October 2018"
+output:
+  xaringan::moon_reader:
+    css: ["default", "metropolis.css", "metropolis-fonts.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+# Motivation
+
+- Fisheries models require information about the age structure of fish populations
+
+<img src="model.png" width="500">
+
+---
+
+# Motivation
+
+- To get this info, take a sample of the population
+
+- Count growth layers on a tiny ear bone called an otolith
+
+.pull-left[
+<img src="MicroPrep.jpg" height="225">
+]
+
+.pull-right[
+<img src="Otolith.jpg" height="225">
+]
+
+--
+
+- But this process is time-consuming and therefore expensive
+
+---
+
+# Motivation
+
+- It is easier and cheaper to measure fish lengths
+
+<img src="Observer.jpg" width="600">
+
+- But fish lengths do not correspond perfectly to fish ages
+
+---
+
+# Your Assignment
+
+- Treat the 1000 observations of fish lengths as a Gaussian mixture 
+
+- Estimate the proportion that belong to each of 3 age cohorts
+
+- Estimate the expected mean and sd of length-at-age
+
+```{r, echo=FALSE, fig.width=7, fig.height=4}
+
+load("FishLengths.RData")
+
+hist(x$Length, prob=TRUE, 
+     xlim=c(0, 100),
+     xlab="Fish Length (cm)",
+     main=NA)
+lines(density(x$Length), col="blue", lwd=2)
+
+```
+
+---
+
+# Your Assignment
+
+- You will use the expectation maximization algorithm to perform estimation (details are provided in the assignment brief)
+
+--
+
+- You will be working in randomly assigned teams of 4 and collaborating via Git and GitHub
+  - The practical on Friday will help you get comfortable with Git
+  - Resources are posted on the course GitHub/Moodle
+
+--
+
+- Assignment tasks are clearly outlined in the brief
+  - Some are specific, some are open-ended
+  - Please follow the instructions!
+  
+---
+
+# Your Assignment
+
+- Due on October 19th at 11:59AM
+
+- Mark comprises 20% of your final grade
+
+- All team members will receive the same mark 
+
+- Criteria:
+ - 10 marks for automated tests
+ - 10 marks for code design and testing
+ - 10 marks for programming style
+ - 10 marks for documentation
+ - 10 marks for additional enhancements
