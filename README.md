@@ -165,10 +165,11 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 
 ### Practical 3
 
-+ Date: 
-+ Topic:
-+ Lecturer:
-+ Resources: [Happy Git with R](http://happygitwithr.com/)
++ Date: 5 October 2018
++ Topic: Teamwork
++ Lecturer: Eiren Jacobson
++ Exercises: 
++ Resources: [Bryan 2017 Version Control](https://github.com/MT4113/2018/blob/master/Practicals/Practical%203/Bryan2017.pdf), [Happy Git with R](http://happygitwithr.com/), [Intro to Git with RStudio](http://r-bio.github.io/intro-git-rstudio/)
 
 ### Practical 4
 
@@ -215,5 +216,7 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 ### [Assignment 2](https://github.com/MT4113/2018/tree/master/Assignments/A2)
 
 + Instructions: [PDF](https://github.com/MT4113/2018/blob/master/Assignments/A2/MT4113A2-2018.pdf)
++ Data: [RData](https://github.com/MT4113/2018/blob/master/Assignments/A2/FishLengths.RData)
++ Resources: [Bryan 2017 Version Control](https://github.com/MT4113/2018/blob/master/Practicals/Practical%203/Bryan2017.pdf), [Happy Git with R](http://happygitwithr.com/), [Intro to Git with RStudio](http://r-bio.github.io/intro-git-rstudio/)
 
 ### Assignment 3
