@@ -215,8 +215,10 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 
 ### [Assignment 2](https://github.com/MT4113/2018/tree/master/Assignments/A2)
 
++ Intro to A2: [PDF](https://github.com/MT4113/2018/blob/master/Assignments/A2/Intro%20to%20Assignment%202.pdf)
 + Instructions: [PDF](https://github.com/MT4113/2018/blob/master/Assignments/A2/MT4113A2-2018.pdf)
 + Data: [RData](https://github.com/MT4113/2018/blob/master/Assignments/A2/FishLengths.RData)
-+ Resources: [Bryan 2017 Version Control](https://github.com/MT4113/2018/blob/master/Practicals/Practical%203/Bryan2017.pdf), [Happy Git with R](http://happygitwithr.com/), [Intro to Git with RStudio](http://r-bio.github.io/intro-git-rstudio/)
++ Background on EM: [Do and Batzoglou 2008](https://github.com/MT4113/2018/blob/master/Assignments/A2/Do%20and%20Batzoglou%202008.pdf)
++ Git Resources: [Bryan 2017 Version Control](https://github.com/MT4113/2018/blob/master/Practicals/Practical%203/Bryan2017.pdf), [Happy Git with R](http://happygitwithr.com/), [Intro to Git with RStudio](http://r-bio.github.io/intro-git-rstudio/)
 
 ### Assignment 3
