@@ -168,7 +168,8 @@ Instructors for 2018 are [Prof. Len Thomas](http://lenthomas.org/) and [Dr Eiren
 + Date: 5 October 2018
 + Topic: Teamwork
 + Lecturer: Eiren Jacobson
-+ Exercises: 
++ Exercises: [HTML](http://htmlpreview.github.io/?https://github.com/MT4113/2018/blob/master/Practicals/Practical%203/prac03-teamwork-2018.html)
++ Files: [functions](https://github.com/MT4113/2018/tree/master/Practicals/Practical%203/functions)
 + Resources: [Bryan 2017 Version Control](https://github.com/MT4113/2018/blob/master/Practicals/Practical%203/Bryan2017.pdf), [Happy Git with R](http://happygitwithr.com/), [Intro to Git with RStudio](http://r-bio.github.io/intro-git-rstudio/)
 
 ### Practical 4
