@@ -158,16 +158,16 @@ The function `teamEM` will return a named list containing the following:
     
 # Marking scheme
 
-This assignment will be marked with computer assistance, just like Assignment 1.  The team's code will be sourced, the output from the `teamEM` function will be checked against results of Gaussian mixture model fitting produced by the function `normalmixEM2comp` in the package `mixtools`.  Note when you use the `normalmixEM2comp` function, the argument `sigsqrd` is an initial value of the two *variances* rather than standard deviations.
+This assignment will be marked with computer assistance, just like Assignment 1.  The team's code will be sourced, the output from the `teamEM` function will be checked against results of Gaussian mixture model fitting produced by the function `normalmixEM` in the package `mixtools`.
 
 For example, testing code would evaluate operation of your submission like this:
 
 ```
 mod <- teamEM(data, epsilon = 1e-08, maxit = 1000) 
-mixmod <- normalmixEM2comp(data, mu = mod$inits$mu, 
-                           sigsqrd = mod$inits$sigma^2, 
-                           lambda = mod$inits$lambda, 
-                           epsilon = 1e-08, maxit = 1000) 
+mixmod <- normalmixEM(data, mu = mod$inits$mu, 
+                            sigsqrd = mod$inits$sigma^2, 
+                            lambda = mod$inits$lambda, 
+                            epsilon = 1e-08, maxit = 1000) 
 mark <- 0 
 mark <- mark + (max(abs(mod$mu - mixmod$mu)) < 0.2)
 mark <- mark + (nrow(mod$posterior) == length(data)) 
