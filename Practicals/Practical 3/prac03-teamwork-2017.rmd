@@ -1,0 +1,220 @@
+---
+title: "Practical 3 - team coding with performance of trimmed means"
+author: "MT4113"
+date: "06 October 2017"
+output:
+  html_document:
+    css: try-soln.css
+    number_sections: yes
+  pdf_document: default
+---
+```{r, include=FALSE}
+help <- TRUE
+solution <- FALSE
+library(knitr)
+library(kableExtra)
+options(knitr.table.format = "html") 
+```
+
+```{asis, echo=solution}
+<div class=soln>
+**SOLUTIONS**
+</div>
+```
+
+# Collaborative programming
+
+This practical asks you to work in the teams you will use for the second assignment.  The coding objective is fairly easy
+
+> Alter five files/functions to assess mean square error performance of trimmed means for data sampled from a mixture distribution.
+
+Nearly all the code is already written, your teams merely need to scan through the files and provide the missing code components.
+
+The five functions and their purposes:
+
+* `do.sim.r()`
+    * runs the simulations by creating replicate datasets of the mixture distribution, computing the trimmed means, expected value of the distribution and mean square error
+* `mix.dist.r()`
+    * generates data from mixture distribution
+* `get.expectation()`
+    * calculates expected value of distribution with specified parameters
+* `estimate.mean()`
+    * calculate trimmed means (these are estimates of the expected value)
+* `mean.square.error()`
+    * compute the mean square error for each of the trim levels
+
+# Accessing the files
+
+Before altering the files, you will need to access them.  This involves working with the collaborative programming environment provided by **Github**; a cloud service.  Having acquired access to the cloud service, you will need software to shift files from your own computer (or Microlab computers) to the cloud, checking for possible collisions of edited files.  Uploading/downloading/synchronising of files is done with software called **Git**.
+
+Consequently, today's practical has the additional purpose of introducing you to Github and Git so you can perform the practical objective, and acquaint you with these tools to be used in your second assignment.
+
+I have placed the files for this practical on Github in what is called a **repository** or (repo).  You will clone the repository to your *team* repository.  From there, you will clone the team repository to your local hard drive, from where you can edit the files.  The edited files will be *pushed* to the team repository.  When all the editing is completed, the files can be bundled into a *release* for distribution to others.
+
+## Creating your own Github account
+
+Visit the [github.com](http://github.com) website and sign up for an account, selecting a user name of your choice and your email address.
+![](github-signup.PNG)
+
+## Access the original repository
+
+Follow this link that will authorise you to access the original repo that lives within an organisation named **StAndrewsStats-MT4113**
+
+https://classroom.github.com/g/qk7sQ5VY
+
+## Join the organisation team to which you have been assigned
+
+By following the link, you will be connected to this organisation on Github.  You will be asked to join the "classroom roster" in the first screen,
+![](roster.PNG)
+Simply **Skip** this step.
+
+On the following screen you will be asked to join an existing team, or create a new team.  As this page warns, choose the correct team, because _it cannot be changed_.
+
+
+```{r get, echo=FALSE}
+students <- read.csv("C:\\Users\\eric\\Dropbox\\MT4113\\pract-2017\\Prac3\\academic-summary-module-MT4113.csv", 
+                     stringsAsFactors = FALSE)
+ug <- students[students$Student.type=="U", ]
+pg <- students[students$Student.type=="P", ]
+```
+
+### Here are the teams
+
+Place an undergrad and postgrad into each team, sample individuals from remaining individuals.
+
+```{r, eval=FALSE}
+tnames <- c("binomial","beta-binomial", "hypergeometric",
+            "geometric", "Poisson", "negative binomial",
+            "beta", "uniform", "normal",
+            "chi-square", "Student's t", "F",
+            "exponential","gamma", "Cauchy",
+            "Weibull", "log-normal")
+all.ug.family <- ug$Family.name
+all.pg.family <- pg$Family.name
+pg1 <- sample(x = pg$Family.name, size=17, replace = FALSE)
+ug1 <- sample(x = ug$Family.name, size=17, replace = FALSE)
+ug.remain <-  !(all.ug.family %in% ug1)
+pg.remain <-  !(all.pg.family %in% pg1)
+remaining <- c(all.ug.family[ug.remain], all.pg.family[pg.remain])  
+third.member <- sample(x=remaining, size=17, replace=FALSE)
+fourth.member <- !(remaining %in% third.member)
+teams <- data.frame(a=ug1, b=third.member, c=pg1, 
+                    d=c(rep(" ",16), remaining[fourth.member]))
+rownames(teams) <- tnames
+temp <- kable(teams)
+kable_styling(temp, bootstrap_options = c("striped", "condensed"), full_width=FALSE)
+```
+
+Sign up to the appropriate team for the Practical 3 task leading from the link.
+
+## Clone team repo onto your local computer
+
+Because you will be editing the files in the team repo, best to have a local copy to do your editing. Clone the team repo onto your local computer with these steps:
+
+### Navigate to the team repo
+
+Follow the link presented on the third page of Github Classroom 
+![](accepted.PNG)
+
+Arriving at the team repo, have a look around, seeing a more detailed description of the practical, the files located in the repository, and importantly, the opportunity to clone the repository.
+![](clone.PNG)
+
+Copy the link using the clipboard icon at the far right.
+
+### Create a file on your local drive
+
+In the Microlab, you will need to access a programme that is not associated with AppsAnywhere.  To prevent repeated typing, I provide a small batch file on Moodle under Practical 3 (mygit.bat) for you to download to the root of your **H:** drive (use the `Save as` right mouse click to save to appropriate location.
+
+Exit your browser and open the command shell by selecting `Tools | Shell` from the R-Studio command menu.
+
+Use the command `H:` to move to the H: directory, `mkdir Prac3`then the `cd Prac3` command to change directory to the directory you just created.  Type the following:
+
+```
+H:
+mkdir Prac3
+cd Prac3
+H:\mygit clone https://github.com/StAndrewsStats/practical-3-trimmed-means-bears.git
+```
+You will likely be challenged for your Github username and password at this point.  Enter your Github identity once, and this should persist for the duration of your computer session (until you logout from your workstation).
+
+This will have cloned the repository to your local hard drive into a folder under the `Prac3` folder you just created.  In this case, the folder will be called `practical-3-trimmed-means-bears`.  Your folder name will be different because your team name will differ.  Examine the content of this folder that contains all the files that were in the Github repository you successfully cloned.
+
+###  Identify yourself to Git
+
+As a member of a team, you'll need to inform Git about your identity.  This way Git can check whether you should have access to the remote repository.  Git will also identify the changes you make to the repository.  Git keeps a record of all modifications of the files and the identity of who made those modifications; a wonderful feature for tracking who is responsible for various changes.
+
+You will identify yourself with both your name and your email address with these Git commands
+
+```
+H:\mygit config --global user.name "your name"
+H:\mygit config --global user.email "email address - both in quotes"
+H:\mygit config --global --list        <this checks that Git understood you>
+```
+
+### With R-Studio, edit one of the files `estimate.mean.r`
+
+With R-Studio, navigate to the directory holding the files. To do this, use the File Pane in lower right corner, pressing the `three dots` to open window allowing directory selection with your mouse.
+![](cd.PNG)
+
+Make a small edit, perhaps add a comment line.  Save the file.  Open the command Shell from inside R-Studio.
+![](shellstudio.PNG)
+
+A diagram showing the different states in which files can exit.
+![](lifecycle.PNG)[^1]  
+
+The concept behind Git has been explained to me as the process of sending stuff from my house to a new house. Before boxes are sent to my new house, I haul them to the removal company warehouse (`git add`); equivalent of telling the removal company "these are the boxes I want you to take".  Eventually my boxes are taken to a waiting truck (`git commit`).  When the shipment is ready, the truck drives away, making the delivery to my new house (`git push`).  It is normal for several trips from the warehouse to the truck are necessary before the truck drives off to my new house; i.e. multiple `commits` preceed a single `push`.  
+
+* I might bring several loads of boxes to the company warehouse, using `git add` commands each time.  
+* Or I might use a single `git add` after I have taken all my boxes to the warehouse.  
+
+The latter is the approach we will use, cloning the repository brings all the boxes we intend to ship to the warehouse.  We can then issue
+
+```
+H:\mygit add -A
+```
+
+This use of the `-A` switch implies *all* of the boxes I have brought should be added to my shipment.  If I were to create a new file (bring a new box to the warehouse after this), I would need to use `H:\mygit add <filename>` to indicate a new box should be added to the shipment.
+
+[^1]: Taken from Chapter 2 of [Pro Git Book](https://git-scm.com/book/en/v2) by Chacon and Straub.
+
+####  Make the commit
+
+```
+H:\mygit commit estimate.mean.r -m "I have edited estimate.mean.r"
+```
+The content following `-m` in quotes is important as it provides a brief description of the commit.
+
+#### Push the commit
+
+```
+H:\mygit push
+```
+
+## Return to the team repo with your browser
+
+Look at the `estimate.mean.r` content in the team repo.  You will notice the changes you caused on your local machine.
+
+# Operate as a team
+
+The only other Git command that will be useful is `pull`.  Its purpose is to bring down  changes from the Github repo to your local repository, without cloning the entire repo.  It is important when working in groups to carry out a `pull` before begining to edit, because `pull` gives your local repo the benefits of all the edits your team members may have produced.
+
+Get into the habit of beginning any editing session of a team project with
+
+```
+H:\mygit pull
+```
+when in the directory where your repo is located.  Failure to start your editing session with a `git pull` will likely lead to conflicts.
+
+# Carry out the task described
+
+Edit the function files as necessary to perform the programming task.  Pay particular attention to seeing how edits of team members propogate up to the team repo, and are then pulled down to your local repo.
+
+# Disaster recovery
+
+Jenny Bryan, lecturer at Univ. of British Columbia has her students use Github for all their assignments.  She references a cartoon (xkcd "a webcomic of romance, sarcasm, math and language") to describe what to do if somehow things go bad.
+![](https://imgs.xkcd.com/comics/git.png)
+
+A more complete description of the conversation the characters are having [can be found here](http://explainxkcd.com/wiki/index.php/1597:_Git).
+
+Bryan's suggestion to her students is 
+> Practice this before you need it, so you see how it works.

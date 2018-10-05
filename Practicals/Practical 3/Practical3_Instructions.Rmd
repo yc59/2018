@@ -1,0 +1,26 @@
+---
+title: "MT4113 Practical 3"
+subtitle: "Collaborating with Git and GitHub"
+author: "Eiren Jacobson"
+date: "5 October 2018"
+output:
+  xaringan::moon_reader:
+    css: ["default", "metropolis.css", "metropolis-fonts.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+---
+
+# When you arrive
+
+1. Please find your teammates and sit together
+
+2. Everyone will need to sign up for an account at github.com
+
+3. Find an instructor and we will give you access to your team repo
+
+4. As a team, follow the instructions for Practical 3
+
+---
