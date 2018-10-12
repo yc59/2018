@@ -1,7 +1,7 @@
 ---
 title: "MT 4113: Computing in Statistics, Assignment 2"
 author: 'Setter: Eiren Jacobson'
-date: "Due: 19 October 2018"
+date: "Updated: 13 October 2018. Due: 19 October 2018"
 output:
   pdf_document: default
   html_document: 
@@ -164,14 +164,14 @@ For example, testing code would evaluate operation of your submission like this:
 
 ```
 mod <- teamEM(data, epsilon = 1e-08, maxit = 1000) 
-mixmod <- normalmixEM(data, mu = mod$inits$mu, 
-                            sigsqrd = mod$inits$sigma^2, 
-                            lambda = mod$inits$lambda, 
-                            epsilon = 1e-08, maxit = 1000) 
+mixmod <- normalmixEM(data$Length, mu = mod$inits$mu, 
+                      sigsqrd = mod$inits$sigma, lambda = mod$inits$lambda, 
+                      epsilon = 1e-08, maxit = 1000) 
 mark <- 0 
-mark <- mark + (max(abs(mod$mu - mixmod$mu)) < 0.2)
-mark <- mark + (nrow(mod$posterior) == length(data)) 
-mark <- mark + (max(abs(mod$likelihood - mixmod$all.loglik)) < 0.01)
+mark <- mark + (max(abs(mod$estimates$mu - mixmod$mu)) < 0.2)
+mark <- mark + (nrow(mod$posterior) == length(data$Length)) 
+mark <- mark + ((abs(mod$likelihood[length(mod$likelihood)] - 
+          mixmod$loglik)) < 0.01)
 ```
 
 Fifty marks in total are available:
