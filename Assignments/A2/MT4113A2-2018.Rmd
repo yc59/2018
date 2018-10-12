@@ -124,8 +124,8 @@ Create modular code consisting of a set of documented and tested functions imple
 
 The function `teamEM` will return a named list containing the following:
 
-* **estimates**: a dataframe of estimates with rows Parameter, Age1, Age2, and Age3, and columns for `mu` ($\hat{\mu}_k$), sigma ($\hat{\sigma}_k$, standard deviation, not variance), and lambda ($\hat{\lambda}_k$)
-* **inits**: a dataframe of initial values with rows for Parameter, Age1, Age2, and Age 3 and columns for mu, sigma, and lambda
+* **estimates**: a dataframe of estimates with rows `Age1`, `Age2`, and `Age3`, and columns for `mu` ($\hat{\mu}_k$), `sigma` ($\hat{\sigma}_k$, standard deviation, not variance), and `lambda` ($\hat{\lambda}_k$).  You can use the function `rownames` to name the rows and `colnames` to name the columns.
+* **inits**: a dataframe of initial values with rows `Age1`, `Age2`, and `Age 3` and columns for `mu`, `sigma`, and `lambda`.  Again, use `rownames` and `colnames` to name the rows and columns.
 * **converged**: TRUE or FALSE (Boolean) indicating whether algorithm converged
 * **posterior**: N by k dataframe of posterior probabilities: dimensions--'number of observations' rows by 'number of components' columns 
 * **likelihood**: vector of log-likelihood values, one for each iteration of the algorithm; vector length is number of iterations of the algorithm 
